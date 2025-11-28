@@ -1,0 +1,1660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/systerm-link.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <title>TE LINK</title>
+    <style>
+        .atd__content:not(.atd-1) {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <ul id="nav">
+            <li><a class="active" href="./TE.html">TE</a></li>
+            <!-- <li><a href="./PE.html">PE</a></li>
+            <li><a href="./ATE.html">ATE</a></li>
+            <li><a href="./NPI.html">NPI</a></li>
+            <li><a href="./MYSQL.html" target="_blank">MYSQL</a></li> -->
+            <li><a href="./SFCS.html">SFCS</a></li>
+            <li><a href="./Command.html">Command</a></li>
+        </ul>
+    </header>
+    <div class="app__container">
+        <div class="grid wide">
+            <div class="row app__content">
+                <div class="col l-2 c-0 m-0">
+                    <nav class="category">
+                        <h3 class="category-heading">
+                            <i class="category-heading-icon fas fa-list">TE Link</i>
+                        </h3>
+                        <ul class="category-list">
+                            <li class="category-item atd category-item--active" data-target="atd-1">
+                                <a href="" class="category-item__link">Common system</a>
+                            </li>
+                            <li class="category-item atd" data-target="atd-2">
+                                <a href="" class="category-item__link">Check In & Out</a>
+                            </li>
+                            <li class="category-item atd" data-target="atd-3">
+                                <a href="" class="category-item__link">SFCS</a>
+                            </li>
+                            <li class="category-item atd" data-target="atd-4">
+                                <a href="" class="category-item__link">TE System by Tim</a>
+                            </li>
+                            <li class="category-item atd" data-target="atd-5">
+                                <a href="" class="category-item__link">Power BI</a>
+                            </li>
+                           
+                            <li class="category-item atd" data-target="atd-7">
+                                <a href="" class="category-item__link">Server</a>
+                            </li>
+    
+                            <li class="category-item atd" data-target="atd-9">
+                                <a href="" class="category-item__link">Máy Copy HDD</a>
+                            </li>
+                            <li class="category-item atd" data-target="atd-10">
+                                <a href="" class="category-item__link">Remote VNC</a>
+                            </li>
+                            <li class="category-item atd" data-target="atd-11">
+                                <a href="" class="category-item__link">DT & PCPA</a>
+                            </li>
+                            <li class="category-item atd" data-target="atd-13">
+                                <a href="" class="category-item__link">MODS Codes</a>
+                            </li>
+                            <li class="category-item atd" data-target="atd-14">
+                                <a href="" class="category-item__link">LED_Beep Codes</a>
+                            </li>
+                            <li class="category-item atd" data-target="atd-15">
+                                <a href="" class="category-item__link">SYNC CFI</a>
+                            </li>
+                            <li class="category-item atd" data-target="atd-16">
+                                <a href="" class="category-item__link">ERROR BLUESCR</a>
+                            </li>
+                            <li class="category-item atd" data-target="atd-17">
+                                <a href="" class="category-item__link">PRELOAD - TV</a>
+                            </li>
+                            <li class="category-item atd" data-target="atd-18">
+                                <a href="" class="category-item__link">WIMES | F7V1 PRD</a>
+                            </li>
+                            <li class="category-item atd" data-target="atd-19">
+                                <a href="" class="category-item__link">Check Model</a>
+                            </li>
+                            <li class="category-item atd" data-target="atd-20">
+                                <a href="" class="category-item__link">IP WCD</a>
+                            </li>
+                            <li class="category-item atd" data-target="atd-21">
+                                <a href="" class="category-item__link">AP Check List</a>
+                            </li>
+                             <li class="category-item atd" data-target="atd-22">
+                                <a href="" class="category-item__link">Service Web TE</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col l-10 m-12 c-12">
+                    <div class="product ">
+                        <div class="row sm-gutter">
+                            <div class="atd__content atd-19">
+                                <div class="preload_background">
+                                    <h1>Check Model</h1>
+                                    <pre>
+
+
+                                    @ECHO OFF
+
+                                    :start
+                                    cd /d %~dp0
+                                    COLOR 07
+                                    IF EXIST SYSID.TXT DEL SYSID.LOG
+                                    wmic /namespace:\\root\wmi path MS_SystemInformation get SystemSKU >SYSID.LOG
+
+
+
+                                    REM OdinMLK
+                                    FIND /I "C13" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO OdinMLK
+                                    FIND /I "C16" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO OdinMLK
+
+                                    REM Scorpio_MTL
+                                    FIND /I "C91" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Scorpio_MTL
+
+                                    REM InfinityRPL
+                                    FIND /I "BFB" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Infinity_RPL
+                                    FIND /I "BFC" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Infinity_RPL
+                                    FIND /I "C49" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Infinity_RPL
+                                    FIND /I "C48" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Infinity_RPL
+
+                                    REM InfinityMLK
+                                    FIND /I "C9D" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Infinity18_E
+                                    FIND /I "C9C" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Infinity18_P
+
+                                    REM InfinityAMD
+                                    FIND /I "BFD" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Infinity_AMD
+                                    FIND /I "BFE" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Infinity_AMD
+                                    FIND /I "C4A" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Infinity_AMD
+                                    FIND /I "C4B" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Infinity_AMD
+
+                                    FIND /I "C5A" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Infinity_AMD
+                                    FIND /I "C5B" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Infinity_AMD
+                                    FIND /I "C5D" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Infinity_AMD
+                                    FIND /I "C5E" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Infinity_AMD
+
+                                    FIND /I "C4C" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Infinity_AMD_E4
+                                    ::FIND /I "C5F" SYSID.LOG
+                                    ::IF "%errorlevel%"=="0" GOTO Infinity18_A
+                                    ::FIND /I "BFF" SYSID.LOG
+                                    ::IF "%errorlevel%"=="0" GOTO Infinity16_A
+                                    ::FIND /I "C4C" SYSID.LOG
+                                    ::IF "%errorlevel%"=="0" GOTO Infinity18_A
+                                    ::FIND /I "C5C" SYSID.LOG
+                                    ::IF "%errorlevel%"=="0" GOTO Infinity16_A
+
+                                    REM OasisRPL
+                                    FIND /I "C08" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Oasis13_RPL
+                                    FIND /I "C09" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Oasis13_RPL
+                                    FIND /I "C0A" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Oasis13_RPL
+
+
+                                    REM OasisMTL
+                                    FIND /I "CBD" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Oasis13_MTL
+                                    FIND /I "CBE" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Oasis13_MTL
+                                    FIND /I "CBF" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Oasis13_MTL
+
+
+                                    REM OasisMLKRPL
+                                    FIND /I "CC0" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Oasis13_MLK_RPL
+
+
+                                    REM QuakePlus
+                                    FIND /I "C1F" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO QuakePlus
+                                    FIND /I "C20" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO QuakePlus
+                                    FIND /I "C28" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO QuakePlus
+
+
+                                    REM Arches15
+                                    FIND /I "C05" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Arches15
+                                    FIND /I "C06" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Arches15
+                                    FIND /I "C07" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Arches15
+
+
+                                    REM Hellcat_TGL
+                                    FIND /I "9DD" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Hellcat_TGL
+                                    FIND /I "A05" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Hellcat_TGL
+                                    FIND /I "9DE" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Hellcat_TGL
+                                    FIND /I "9DF" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Hellcat_TGL
+
+                                    REM PinehillsMLK
+                                    FIND /I "97F" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO PinehillsMLK
+                                    FIND /I "A13" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO PinehillsMLK
+
+                                    REM BM15
+                                    FIND /I "A67" SYSID.LOG >NUL
+                                    IF NOT ERRORLEVEL 1 GOTO Broadmoor15
+                                    FIND /I "A68" SYSID.LOG >NUL
+                                    IF NOT ERRORLEVEL 1 GOTO Broadmoor15
+
+
+                                    REM CYBGLICL
+                                    FIND /I "A84" SYSID.LOG >NUL
+                                    IF NOT ERRORLEVEL 1 GOTO CyborgLICL
+                                    FIND /I "A85" SYSID.LOG >NUL
+                                    IF NOT ERRORLEVEL 1 GOTO CyborgLICL
+
+
+
+                                    REM CYBGLTGL
+                                    FIND /I "A7B" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgLTGL
+                                    FIND /I "A7C" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgLTGL
+                                    FIND /I "B20" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgLTGL
+                                    FIND /I "B21" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgLTGL
+
+
+                                    REM CYBGAMD
+                                    FIND /I "A77" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgAMD
+                                    FIND /I "AE9" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgAMD
+                                    FIND /I "A78" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgAMD
+                                    FIND /I "AEA" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgAMD
+                                    FIND /I "A79" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgAMD
+                                    FIND /I "AEB" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgAMD
+                                    FIND /I "A7A" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgAMD
+                                    FIND /I "AEC" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgAMD
+
+                                    REM CYBGNVTGL
+                                    FIND /I "A7D" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+                                    FIND /I "A7E" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+                                    FIND /I "A7F" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+                                    FIND /I "A80" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+                                    FIND /I "AE3" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+                                    FIND /I "AE4" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+                                    FIND /I "AE5" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+                                    FIND /I "AE6" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+                                    FIND /I "B23" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+                                    FIND /I "B24" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+                                    FIND /I "B25" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+                                    FIND /I "B26" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+                                    FIND /I "B2C" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+                                    FIND /I "B2D" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+                                    FIND /I "B2E" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+                                    FIND /I "B2F" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+
+
+                                    REM SP15TGL
+                                    FIND /I "A21" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO SP15TGL
+                                    FIND /I "A22" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO SP15TGL
+
+
+
+                                    REM SP15CML
+                                    FIND /I "A41" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO SP15CML
+
+                                    REM SP13TGL
+                                    FIND /I "A42" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO SP13TGL
+                                    FIND /I "A1F" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO SP13TGL
+
+                                    REM WMAMD
+                                    FIND /I "A8C" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Watchmen_AMD
+
+                                    REM Watchmen_TGL
+                                    FIND /I "A89" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO WatchmenTGL
+                                    FIND /I "AA9" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO WatchmenTGL
+
+                                    REM MoonKnight
+                                    FIND /I "A86" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO MoonKnight
+                                    FIND /I "A87" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO MoonKnight
+
+                                    REM MoonKnightL
+                                    FIND /I "A88" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO MoonKnightL
+
+                                    REM ODIN_AMD
+                                    FIND /I "B46" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO ODIN_AMD
+                                    FIND /I "B7E" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO ODIN_AMD
+                                    FIND /I "B47" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO ODIN_AMD
+                                    FIND /I "B7F" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO ODIN_AMD
+                                    FIND /I "B48" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO ODIN_AMD
+
+
+                                    REM ANTAMD
+                                    FIND /I "B38" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Antman_AMD
+
+                                    REM SP15MLKADL
+                                    FIND /I "A21" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO SP15MLKADL
+                                    FIND /I "B06" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO SP15MLKADL
+                                    FIND /I "B07" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO SP15MLKADL
+                                    FIND /I "B08" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO SP15MLKADL
+
+
+                                    REM SP13MLK
+                                    FIND /I "B02" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO SP13MLK
+                                    FIND /I "B03" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO SP13MLK
+
+
+                                    REM ODINL13TGL
+                                    FIND /I "B43" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO OdinL13TGL
+
+                                    REM BM15MLK
+                                    FIND /I "B0F" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO BM15MLK
+                                    FIND /I "B10" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO BM15PMLK
+
+                                    REM Ant14ADL
+                                    FIND /I "B36" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Ant14ADL
+
+                                    REM Ant16ADL
+                                    FIND /I "B37" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Ant16ADL
+
+                                    Rem ODIN_H
+                                    FIND /I "B4A" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO ODIN_H
+                                    FIND /I "B3C" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO ODIN_H
+                                    FIND /I "B3F" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO ODIN_H
+
+                                    Rem ODIN_H_RTX
+                                    FIND /I "B71" SYSID.LOG
+                                    IF "%errorlevel%"=="0" ODIN_H_RTX
+
+                                    Rem Odin_CR
+                                    FIND /I "BA8" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Odin_CR
+                                    FIND /I "BAA" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Odin_CR
+                                    FIND /I "BAE" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Odin_CR
+
+                                    Rem Millennio_Wlan
+                                    FIND /I "B34" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Millennio_Wlan
+                                    FIND /I "B49" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Millennio_5G
+
+
+                                    Rem QuakeRPL
+                                    FIND /I "C14" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO QuakeN1416
+                                    FIND /I "C15" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO QuakeN1416
+                                    FIND /I "C17" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO QuakeN1416
+                                    FIND /I "C18" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO QuakeN1416
+
+                                    REM Quake_L_RPl
+                                    FIND /I "C19" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO QuakeL_RPL
+                                    FIND /I "C1D" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO QuakeL_RPL
+                                    FIND /I "C1E" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO QuakeL_RPL
+
+                                    REM Stradale_RPL
+                                    FIND /I "BDb" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Stradale_RPL
+                                    FIND /I "BDA" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Stradale_RPL
+
+                                    REM ARCHES13
+                                    rem -----CS-------
+                                    FIND /I "C03" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO ARCHES13
+                                    REM ------2IN1------
+                                    FIND /I "C04" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO ARCHES13
+
+                                    REM Quake_ADL
+                                    FIND /I "C1A" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Quake_ADL
+                                    FIND /I "C1B" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Quake_ADL
+                                    FIND /I "C1C" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Quake_ADL
+
+                                    REM PolarisN1416
+                                    FIND /I "C93" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO PolarisN1416
+                                    FIND /I "C94" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO PolarisN1416
+                                    FIND /I "C95" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO PolarisN1416
+                                    FIND /I "C96" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO PolarisN1416
+
+
+                                    REM QKL_MLK_RPL
+                                    FIND /I "C97" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO QKL_MLK_RPL
+                                    FIND /I "C98" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO QKL_MLK_RPL
+
+                                    REM QKL_MLK_MTL
+                                    FIND /I "C99" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO QKL_MLK_MTL
+                                    FIND /I "C9A" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO QKL_MLK_MTL
+
+                                    REM Arches15MLK
+                                    FIND /I "CBC" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Arches15MLK_RPL
+                                    FIND /I "CB9" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Arches15MLK_MTL
+                                    FIND /I "CBA" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Arches15MLK_MTL
+                                    FIND /I "CBB" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Arches15MLK_MTL
+
+                                    REM Arches13MLK
+                                    FIND /I "CB5" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Arches13MLK_MTL
+                                    FIND /I "CB6" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Arches13MLK_MTL
+                                    FIND /I "CB7" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Arches13MLK_RPL
+                                    FIND /I "CB8" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Arches13MLK_RPL
+
+
+                                    REM DIABLO
+                                    FIND /I "C63" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO DIABLO_MTL
+                                    FIND /I "C62" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO DIABLO_MTL
+
+                                    REM DIABLO
+                                    FIND /I "CE7" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO DIABLO_ARL
+                                    FIND /I "CE6" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO DIABLO_ARL
+
+
+                                    REM TarokoLNL
+                                    FIND /I "CDD" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Taroko_LNL
+
+                                    FIND /I "CDC" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Taroko_LNL
+
+                                    FIND /I "CDB" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Taroko_LNL
+
+
+
+                                    rem TAROKO_ARL
+                                    FIND /I "CF4" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Taroko_ARL
+
+                                    FIND /I "CF3" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Taroko_ARL
+
+                                    FIND /I "CF5" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Taroko_ARL
+
+
+                                    rem TAROKO_RPL
+                                    FIND /I "CF6" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Taroko_RPL
+
+
+                                    REM GhostRider
+                                    FIND /I "CF0" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO GhostRider_UI
+
+                                    FIND /I "CF1" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO GhostRider_UI
+
+                                    REM SentryN14_2in1
+                                    FIND /I "CA7" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO SentryN14_2in1
+
+                                    REM JAVIS_LNL
+                                    FIND /I "D2D" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO JARVIS
+
+                                    FIND /I "D2E" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO JARVIS
+
+                                    FIND /I "D30" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO JARVIS
+
+                                    FIND /I "D31" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO JARVIS
+
+
+                                    REM Arwing_RPL_B2_AND_B3
+                                    FIND /I "D35" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO ArwingRPL
+
+
+                                    REM Arwing_ARL B2
+                                    FIND /I "D34" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO ArwingARL
+
+                                    rem ==== TAROKO AMD
+
+                                    REM =====CS HPT1======
+                                    FIND /I "D47" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
+                                    REM =====CS HPT2======
+                                    FIND /I "D48" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
+                                    REM =====CS KRK======
+                                    FIND /I "D49" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
+                                    REM =====2IN1 HPT1======
+                                    FIND /I "D4A" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
+                                    REM =====2IN1 HPT2======
+                                    FIND /I "D4B" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
+                                    REM =====2IN1 KRK======
+                                    FIND /I "D4C" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
+                                    REM =====CS Strix======
+                                    FIND /I "D61" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
+                                    REM =====2IN1 Strix======
+                                    FIND /I "D62" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
+                                    REM ========16CS HPT1====
+                                    FIND /I "D4D" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
+                                    REM ========16CS HPT2====
+                                    FIND /I "D4E" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
+                                    REM ========16CS KRK====
+                                    FIND /I "D4F" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
+                                    REM ========16CS Strix====
+                                    FIND /I "D65" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
+
+                                    rem====Jade_AMD=====
+                                    FIND /I "D50" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO JadeAMD
+                                    FIND /I "D51" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO JadeAMD
+                                    FIND /I "D52" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO JadeAMD
+                                    FIND /I "D53" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO JadeAMD
+                                    FIND /I "D54" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO JadeAMD
+                                    FIND /I "D55" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO JadeAMD
+
+                                    rem====Jade_ARL=====
+                                    FIND /I "D63" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO JadeARL
+                                    FIND /I "D64" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO JadeARL
+
+                                    rem====Jade_SSDRPL=====
+                                    FIND /I "CFB" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO JadeRPL
+                                    FIND /I "CFC" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO JadeRPL
+
+                                    rem====Javis_amd=====
+                                    FIND /I "D6E" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO JarvisAMD
+                                    FIND /I "D6F" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO JarvisAMD
+                                    FIND /I "D70" SYSID.LOG
+                                    IF "%errorlevel%"=="0" GOTO JarvisAMD
+                                    goto fail
+
+                                    :JadeARL
+                                    SET MODELFULL=Jade_ARL
+                                    SET ModelPath=JadeARL_UI
+                                    goto PASS
+
+                                    :JadeRPL
+                                    SET MODELFULL=Jade_RPL
+                                    SET ModelPath=Jade1416_UI
+                                    goto PASS
+
+                                    :JadeAMD
+                                    SET MODELFULL=Jade_AMD
+                                    SET ModelPath=Jade_AMD_UI
+                                    goto PASS
+
+                                    :Taroko_AMD
+                                    SET MODELFULL=Taroko_AMD
+                                    SET ModelPath=Taroko_AMD_UI
+                                    goto PASS
+
+
+                                    :JARVIS
+                                    SET MODELFULL=JARVIS_LNL
+                                    SET ModelPath=Jarvis_UI
+                                    goto PASS
+
+
+
+                                    :SentryN14_2in1
+                                    SET MODELFULL=SentryN14_2in1
+                                    SET ModelPath=SentryNVRPL_UI
+                                    goto PASS
+
+
+                                    :DIABLO_MTL
+                                    SET MODELFULL=DIABLO_MTL
+                                    SET ModelPath=Diablo_MTL_UI
+                                    goto PASS
+
+                                    :DIABLO_ARL
+                                    SET MODELFULL=DIABLO_ARL
+                                    SET ModelPath=Diablo_ARL_UI
+                                    goto PASS
+
+                                    :Arches13MLK_MTL
+                                    SET MODELFULL=Arches13MLK_MTL
+                                    SET ModelPath=Arches13MLK_UI
+                                    GOTO PASS
+
+                                    :Arches13MLK_RPL
+                                    SET MODELFULL=Arches13MLK_RPL
+                                    SET ModelPath=Arches13MLK_UI
+                                    GOTO PASS
+
+                                    :Arches15MLK_MTL
+                                    SET MODELFULL=Arches15MLK_MTL
+                                    SET ModelPath=Arches15MLK_UI
+                                    GOTO PASS
+
+                                    :Arches15MLK_RPL
+                                    SET MODELFULL=Arches15MLK_RPL
+                                    SET ModelPath=Arches15MLK_UI
+                                    GOTO PASS
+
+                                    :QKL_MLK_MTL
+                                    SET MODELFULL=QKL_MLK_MTL
+                                    SET ModelPath=QKL_MLK_MTL_UI
+                                    GOTO PASS
+
+
+                                    :QKL_MLK_RPL
+                                    SET MODELFULL=QKL_MLK_RPL
+                                    SET ModelPath=QKL_MLK_RPL_UI
+                                    GOTO PASS
+
+                                    :Infinity18_E
+                                    SET MODELFULL=Infinity_MLK
+                                    SET ModelPath=Infinity_MLK_UI
+                                    GOTO PASS
+
+
+                                    :Infinity18_P
+                                    SET MODELFULL=Infinity_MLK
+                                    SET ModelPath=Infinity_MLK_UI
+                                    GOTO PASS
+
+                                    :ARCHES13
+                                    SET MODELFULL=Arches13
+                                    SET ModelPath=Arches13_UI
+                                    GOTO PASS
+
+                                    :OdinMLK
+                                    SET MODELFULL=OdinMLK
+                                    SET ModelPath=OdinMLK_UI
+                                    GOTO PASS
+
+                                    :Stradale_RPL
+                                    SET MODELFULL=Stradale_RPL
+                                    SET ModelPath=Stradale_RPL_UI
+                                    GOTO PASS
+
+                                    :Infinity_AMD
+                                    SET MODELFULL=Infinity_AMD
+                                    SET ModelPath=Infinity_AMD_UI
+                                    GOTO PASS
+
+                                    :Infinity_AMD_E4
+                                    SET MODELFULL=Infinity_AMD_E4
+                                    SET ModelPath=Infinity_AMD_UI
+                                    GOTO PASS
+
+                                    :Infinity_RPL
+                                    SET MODELFULL=Infinity_RPL
+                                    SET ModelPath=Infinity_RPL_UI
+                                    GOTO PASS
+
+                                    :Oasis13_RPL
+                                    SET MODELFULL=Oasis13_RPL
+                                    SET ModelPath=Oasis13_RPL_UI
+                                    GOTO PASS
+
+                                    :Oasis13_MTL
+                                    SET MODELFULL=Oasis13_MTL
+                                    SET ModelPath=Oasis13_MTL_UI
+                                    GOTO PASS
+
+                                    :Oasis13_MLK_RPL
+                                    SET MODELFULL=Oasis13_MLK_RPL
+                                    SET ModelPath=Oasis13MLK_RPL_UI
+                                    GOTO PASS
+
+                                    :QuakePlus
+                                    SET MODELFULL=QuakePlus
+                                    SET ModelPath=QuakePlus_UI
+                                    GOTO PASS
+
+                                    :Arches15
+                                    SET MODELFULL=Arches15
+                                    SET ModelPath=Arches15_UI
+                                    GOTO PASS
+
+                                    :QuakeL_RPL
+                                    SET MODELFULL=QuakeL_RPL
+                                    SET ModelPath=Quake_L_RPL_UI
+                                    GOTO PASS
+
+
+                                    :QuakeN1416
+                                    SET MODELFULL=QuakeN1416
+                                    SET ModelPath=QuakeN1416_UI
+                                    GOTO PASS
+
+
+
+                                    :Millennio_Wlan
+                                    SET MODELFULL=Millennio
+                                    SET ModelPath=Millennio_ADL_UI
+                                    GOTO PASS
+
+
+                                    :Millennio_5G
+                                    SET MODELFULL=Millennio
+                                    SET ModelPath=Millennio_ADL_UI
+                                    GOTO PASS
+
+                                    :BM15MLK
+                                    SET MODELFULL=BM15MLK
+                                    SET ModelPath=Broadmoor15MLK_UI
+                                    GOTO PASS
+
+                                    :BM15PMLK
+                                    SET MODELFULL=BM15PMLK
+                                    SET ModelPath=Broadmoor15MLK_UI
+                                    GOTO PASS
+
+                                    :OdinL13TGL
+                                    SET MODELFULL=ODINL13TGL
+                                    SET ModelPath=OdinL13_TGL_UI
+                                    GOTO PASS
+
+                                    :SP13MLK
+                                    SET MODELFULL=SP13MLK
+                                    SET ModelPath=SP13MLK_UI
+                                    GOTO PASS
+
+                                    :SP15MLKADL
+                                    SET MODELFULL=SP15MLKADL
+                                    SET ModelPath=SP15MLK_ADL_UI
+                                    GOTO PASS
+
+
+                                    :MoonKnight
+                                    SET MODELFULL=MoonKnight
+                                    SET ModelPath=MoonKnight_UI
+                                    GOTO PASS
+
+                                    :MoonKnightL
+                                    SET MODELFULL=MoonKnightL
+                                    SET ModelPath=MoonKnightL_UI
+                                    GOTO PASS
+
+
+
+                                    :PinehillsMLK
+                                    SET MODELFULL=PinehillsMLK
+                                    SET ModelPath=PinehillsMLK_UI
+                                    GOTO PASS
+
+
+                                    :Hellcat_TGL
+                                    SET MODELFULL=Hellcat_TGL
+                                    SET ModelPath=Hellcat_TGL_UI
+                                    GOTO PASS
+
+                                    :WatchmenTGL
+                                    SET MODELFULL=Watchmen_TGL
+                                    SET ModelPath=Watchmen_TGL_UI
+                                    GOTO PASS
+
+                                    :Broadmoor15
+                                    SET MODELFULL=Broadmoor15TGL
+                                    SET ModelPath=BroadMoor15_UI
+                                    GOTO PASS
+
+                                    :CyborgLICL
+                                    SET MODELFULL=CyborgLICL
+                                    SET ModelPath=Cyborg_L_ICL_UI
+                                    GOTO PASS
+
+
+                                    :CyborgLTGL
+                                    SET MODELFULL=CyborgLTGL
+                                    SET ModelPath=Cyborg_L_TGL_UI
+                                    GOTO PASS
+
+
+                                    :CyborgAMD
+                                    SET MODELFULL=Cyborg_AMD
+                                    SET ModelPath=CyborgAMD_UI
+                                    GOTO PASS
+
+                                    :CyborgNVTGL
+                                    SET MODELFULL=Cyborg_NVTGL
+                                    SET ModelPath=CyborgNVTGL_UI
+                                    GOTO PASS
+
+
+                                    :SP15TGL
+                                    SET MODELFULL=SP15TGL
+                                    SET ModelPath=SouthPeak15_UI
+                                    GOTO PASS
+
+                                    :SP15CML
+                                    SET MODELFULL=SP15CML
+                                    SET ModelPath=SouthPeak15CML_UI
+                                    GOTO PASS
+
+
+                                    :SP13TGL
+                                    SET MODELFULL=SP13TGL
+                                    SET ModelPath=SouthPeak13_UI
+                                    GOTO PASS
+
+                                    :Watchmen_AMD
+                                    SET MODELFULL=Watchmen_AMD
+                                    SET ModelPath=Watchmen_AMD_UI
+                                    GOTO PASS
+
+                                    :ODIN_AMD
+                                    SET MODELFULL=ODIN_AMD
+                                    SET ModelPath=ODIN_AMD_UI
+                                    GOTO PASS
+
+                                    :Antman_AMD
+                                    SET MODELFULL=Antman_AMD
+                                    SET ModelPath=Antman_AMD_UI
+                                    GOTO PASS
+
+
+                                    :Ant16ADL
+                                    SET MODELFULL=Ant16ADL
+                                    SET ModelPath=Antman_ADL_UI
+                                    GOTO PASS
+
+                                    :Ant14ADL
+                                    SET MODELFULL=Ant14ADL
+                                    SET ModelPath=Antman_ADL_UI
+                                    GOTO PASS
+
+
+                                    :ODIN_H_RTX
+                                    SET MODELFULL=ODIN_H_RTX
+                                    SET ModelPath=Odin_H_UI
+                                    GOTO PASS
+
+                                    :ODIN_H
+                                    SET MODELFULL=ODIN_H
+                                    SET ModelPath=Odin_H_UI
+                                    GOTO PASS
+
+
+                                    :Odin_CR
+                                    SET MODELFULL=ODIN_CR
+                                    SET ModelPath=OdinNV1416_CR_UI
+                                    GOTO PASS
+
+                                    :Quake_ADL
+                                    SET MODELFULL=Quake_ADL
+                                    SET ModelPath=Quake_L_ADL_UI
+                                    GOTO PASS
+
+                                    :PolarisN1416
+                                    SET MODELFULL=PolarisN1416
+                                    SET ModelPath=PolarisN1416_UI
+                                    GOTO PASS
+
+
+                                    :Taroko_LNL
+                                    SET MODELFULL=Taroko_LNL
+                                    SET ModelPath=Taroko_LNL_UI
+                                    GOTO PASS
+
+                                    :Taroko_ARL
+                                    SET MODELFULL=Taroko_ARL
+                                    SET ModelPath=Taroko_ARL_UI
+                                    GOTO PASS
+
+                                    :Taroko_RPL
+                                    SET MODELFULL=Taroko_RPL
+                                    SET ModelPath=Taroko_RPL_UI
+                                    GOTO PASS
+
+                                    :Scorpio_MTL
+                                    SET MODELFULL=Scorpio_MTL
+                                    SET ModelPath=Scorpio_MTL_UI
+                                    GOTO PASS
+
+                                    :GhostRider_UI
+
+                                    SET MODELFULL=GhostRider
+                                    SET ModelPath=GhostRider_UI
+
+                                    if @%MODELFAMILY%==@4PD0VH01A001 (
+                                    SET MODELFULL=GhostRiderDIS
+                                    SET ModelPath=GhostRider_UI)
+
+                                    if @%MODELFAMILY%==@4PD0VK01A001 (
+                                    SET MODELFULL=GhostRiderDIS
+                                    SET ModelPath=GhostRider_UI)
+                                    GOTO PASS
+
+                                    :ArwingRPL
+                                    REM ====ArWing_RPL_MB3=====
+
+                                    SET MODELFULL=AW_ARWING_H_MB3
+                                    SET ModelPath=Arwing_UI
+
+                                    REM ====ArWing_RPL_MB2=====
+
+                                    IF @%MODELFAMILY%==@4PD0V9010001 (
+                                    SET MODELFULL=AW_ARWING_RPL_B2
+                                    SET ModelPath=Arwing_UI)
+                                    GOTO PASS
+
+                                    :ArwingARL
+                                    SET MODELFULL=AW_ARWING_ARL_B2
+                                    SET ModelPath=Arwing_UI
+                                    GOTO PASS
+
+
+                                    :JarvisAMD
+                                    SET MODELFULL=Jarvis_AMD
+                                    SET ModelPath=JarvisAMD_UI
+                                    GOTO PASS
+                                    :FAIL
+                                    cls
+                                    color 4E
+                                    ECHO MODEL NG
+                                    ECHO Please check model !
+                                    ECHO Please check model !
+                                    ECHO Please check model !
+                                    PAUSE
+                                    GOTO START
+                                    exit /b 1
+
+
+                                    :PASS
+                                    ECHO MODELFULL=%MODELFULL%
+                                    ECHO ModelPath=%ModelPath%
+                                    DEL SYSID.LOG
+                                    exit /b 0
+
+                                        </pre>
+                                </div>
+                            </div>
+                            <div class="atd__content atd-17">
+                                <div class="preload_background">
+                                    <!-- <h1>Preload</h1> -->
+                                    <h2>1. Try flash Bios NG => thay Bios , CPU </h2>
+                                    <br>
+                                    <h2>2. Check device Error Preload</h2>
+                                    <br>
+                                    <img class="img-max-w-900 img-medium" src="./img/check_device_error.png" alt="">
+                                    <h2>3. Flash ELC Firmware failed => thay ELC ( điều kiển đèn nền phím ) - thay mạch
+                                        MCU </h2>
+                                    <br>
+                                    <h2>4. Dimm Ng TV => Scan Dimm NG</h2>
+                                    <img class="img-max-w-900 img-medium" src="./img/preloadd_immNG.png" alt="">
+                                    <br>
+                                    <h2>5. SLOT SSD 2 NG OR NOT FOUND => Scan SLOT SSD NG</h2>
+                                    <img class="img-max-w-900 img-medium" src="./img/preload_SLOT_SSD_2.png" alt="">
+                                    <br>
+                                    <h2>6. Windows Device Error: Device Problem Code 43: UCM-UCSI ACPI Device</h2>
+                                        <p>=> vào F12 </p>
+                                        <p>=> select windowinsnls</p>
+                                        <p>waitting ... cmd pause C:\dell\fist</p>
+                                        <p>command: desktop.bat </p>
+                                    <br>
+                                    <h2>7.Goto Window then passTV, not connetion wifi</h2>
+                                    <img class="img-max-w-900 img-medium" src="./img/gotoWindow_notconetionwifi.jpg" alt="">
+                                        <br>
+                                    <br>
+                                    <h2>8.test:Intel BE201 test failed after reboot and retry => replace wlan</h2>
+                                    <img class="img-max-w-900 img-medium" src="./img/preload_wlanbe201.png" alt="">
+                                        <br>
+                                    <br>
+                                    <h2>9. Temp workaround for Intel 9260/9560. Unable to capture MAC address: giống lỗi 8 nhưng thay wlan 2 lần => thay MB </h2>
+                                    <img class="img-max-w-900 img-medium" src="./img/preload_ Intel_9260_9560_wlanbe201.png" alt="">
+                                        <br>
+                                </div>
+                            </div>
+                            <div class="atd__content atd-15">
+                                <a href="http://10.69.230.18:8800/home/display_ng_information">
+                                    Goto http://10.69.230.18:8800/home/display_ng_information</a>
+                                <p class="text-l">Get CFI PW By SVT</p>
+                                <img class="img-small" src="./img/getCFI_PW_by_SVT.png" alt="">
+                                <p class="text-l">Goto \\192.168.200.112\Dell</p>
+                                <p class="text-l">Vào thư mục chữ là chữ cái hoặc chữ số đầu của CPI PW mà ta tìm ở
+                                    trên.</p>
+                                <img class="img-medium" src="./img/112.png" alt="">
+                                <p class="text-l">Goto \\192.168.200.146\cfi\dellsftw</p>
+                                <img class="img-medium" src="./img/146.png" alt="">
+                            </div>
+                            <div class="atd__content atd-13">
+                                <img src="./img/mods_code.jpg" alt="">
+                            </div>
+                            <div class="atd__content atd-20">
+                                <img src="./img/ip_wcd.png" alt="">
+                            </div>
+                            <div class="atd__content atd-21">
+                                <img src="./img/server_ap_list.png" alt="">
+                            </div>
+                            <div class="atd__content atd-7">
+                                <img src="./img/server.png" alt="">
+                            </div>
+                            <div class="atd__content atd-7">
+                                <img src="./img/server2.png" alt="">
+                            </div>
+                            <div class="atd__content atd-7">
+                                <h1 class="text-w">10.69.230.15 => PCPA</h1>
+                            </div>
+                            <div class="atd__content atd-14">
+                                <img src="./img/LED_Beep_Codes.png" alt="">
+                                <img src="./img/LED_Beep_Codes1.jpg" alt="">
+                                <img src="./img/LED_Beep_Codes2.jpg" alt="">
+                            </div>
+                            <div class="atd__content atd-10">
+                                <img src="./img/remote_vnc_new.png" alt="">
+                                <img src="./img/remote_WDL.png" alt="">
+                            </div>
+                           
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-9">
+                                <!-- Product-item -->
+
+                                <div div class="product-item">
+                                    <h3 class="pad-5">FAMILY_COMPARE.txt</h3>
+                                    4PD0SA01A001=QuakeN1416
+                                    4PD0SA01B001=QuakeN1416
+                                    4PD0SC010001=QuakeN1416
+                                    4PD0SC01C001=QuakeN1416
+                                    4PD0SA01C001=QuakeN1416
+                                    4PD0SA010001=QuakeN1416
+
+                                    4PD0SF01A001=Quake_L_RPL
+                                    4PD0SF010001=Quake_L_RPL
+                                    4PD0SE01A001=Quake_L_RPL
+                                    4PD0SE010001=Quake_L_RPL
+
+                                    4PD0SN010001=Arches15
+                                    4PD0SS01A001=Arches15
+                                    4PD0SS010001=Arches15
+                                    4PD0SN01C001=Arches15
+                                    4PD0SN01B001=Arches15
+                                    4PD0SN01A001=Arches15
+
+                                    4PD0T001A001=Arches15H
+                                    4PD0T0010001=Arches15H
+
+                                    4PD0SG010001=Arches13
+                                    4PD0T3010001=Arches13
+                                    4PD0T2010001=Arches13
+                                    4PD0SH010001=Arches13
+
+                                    4PD0S901B001=QuakePlus
+                                    4PD0S901A001=QuakePlus
+                                    4PD0S9010001=QuakePlus
+                                    4PD0S901F001=QuakePlus
+                                    4PD0S901E001=QuakePlus
+
+                                    4PD0S601B001=Oasis
+                                    4PD0S601A001=Oasis
+                                    4PD0S6010001=Oasis
+
+                                    4PD0U9010001=OasisMLKRPL
+
+                                    4PD0UC01B001=OasisMLKMTL
+                                    4PD0UC01A001=OasisMLKMTL
+                                    4PD0UB01B001=OasisMLKMTL
+                                    4PD0UA01A001=OasisMLKMTL
+                                    4PD0UA010001=OasisMLKMTL
+                                    4PD0UB010001=OasisMLKMTL
+                                    4PD0UC010001=OasisMLKMTL
+
+                                    4PD0SE01B001=QuakeL_ADL
+                                    4PD0SE01C001=QuakeL_ADL
+                                    4PD0SF01C001=QuakeL_ADL
+                                    4PD0SF01B001=QuakeL_ADL
+
+                                    4PD0TP010001=PolarisN1416
+                                    4PD0UZ010001=PolarisN1416
+                                    4PD0TR01A001=PolarisN1416
+                                    4PD0TR010001=PolarisN1416
+
+                                    4PD0TV01A001=QKL_MLK_RPL_UI
+                                    4PD0TV01C001=QKL_MLK_RPL_UI
+
+                                    4PD0TV010001=QKL_MLK_MTL_UI
+                                    4PD0TV01B001=QKL_MLK_MTL_UI
+
+                                    4PD0U7010001=AR13MLKMTL
+                                    4PD0U701A001=AR13MLKMTL
+                                    4PD0U8010001=AR13MLKMTL
+                                    4PD0U801A001=AR13MLKMTL
+
+                                    4PD0UJ010001=AR13MLKRPL
+                                    4PD0UH010001=AR13MLKRPL
+
+                                    4PD0U5010001=AR15MLKMTL
+                                    4PD0U501A001=AR15MLKMTL
+
+                                    4PD0UG010001=AR15MLKRPL
+
+                                    4PD0U401A001=AR15MLKP
+                                    4PD0U4010001=AR15MLKP
+                                    4PD0U6010001=AR15MLKP
+                                    4PD0U601A001=AR15MLKP
+
+                                    4PD0TC01B001=DIABLOMTL
+                                    4PD0TC010001=DIABLOMTL
+
+                                    4PD0VE01B001=Taroko_LNL
+                                    4PD0VF010001=Taroko_LNL
+
+                                    4PD0VE010001=Taroko_ARL
+                                    4PD0VE01A001=Taroko_ARL
+                                    4PD0VF01A001=Taroko_ARL
+
+                                    4PD0VF01B001=Taroko_RPL
+
+                                    4PD0TN010001=Scorpio_MTL
+
+                                    4PD0UQ010001=SentryIntel
+                                    4PD0UQ01B001=SentryIntel
+                                    4PD0UQ01A001=SentryIntel
+                                    4PD0UQ01C001=SentryIntel
+                                    4PD0UQ01E001=SentryIntel
+                                    4PD0UP010001=SentryIntel
+
+                                    4PD0US010001=Sentry_AMD
+                                    4PD0US01B001=Sentry_AMD
+                                    4PD0US01A001=Sentry_AMD
+
+                                    4PD0VS01A001=javis
+                                    4PD0VS010001=javis
+                                    4PD0VS01B001=javis
+                                    4PD0VS01C001=javis
+                                    4PD0VR01A001=javis
+                                    4PD0VR010001=javis
+
+                                    4PD0VJ010001=JADE_SSD
+                                    4PD0VJ01A001=JADE_SSD
+                                    4PD0VJ01F001=JADE_SSD
+
+                                    4PD0V901B001=ARWING_MB3
+
+                                    4PD0VE01L001=Taroko_AMD
+                                    4PD0WU010001=Taroko_AMD
+                                    4PD0VE01F001=Taroko_AMD
+                                    4PD0VE01N001=Taroko_AMD
+                                    4PD0VE01K001=Taroko_AMD
+                                    4PD0VE01E001=Taroko_AMD
+                                    4PD0VE01J001=Taroko_AMD
+                                    4PD0VE01H001=Taroko_AMD
+                                    4PD0VE01G001=Taroko_AMD
+                                    4PD0WU01C001=Taroko_AMD
+                                    4PD0WU01B001=Taroko_AMD
+                                    4PD0WU01A001=Taroko_AMD
+
+                                    4PD0WK010001=Jade_AMD
+                                    4PD0WK01A001=Jade_AMD
+                                    4PD0WK01B001=Jade_AMD
+                                    4PD0WL010001=Jade_AMD
+                                    4PD0WL01A001=Jade_AMD
+                                    4PD0WL01B001=Jade_AMD
+                                    4PD0WL01C001=Jade_AMD
+                                    4PD0WL01E001=Jade_AMD
+                                    4PD0WL01F001=Jade_AMD
+
+                                    4PD0WJ010001=Jade_ARL
+                                    4PD0WJ01B001=Jade_ARL
+                                    4PD0WJ01A001=Jade_ARL
+                                    4PD0WJ01C001=Jade_ARL
+                                    4PD0WJ01E001=Jade_ARL
+                                    4PD0WJ01F001=Jade_ARL
+
+
+                                    4PD0VT010001=Jarvis_AMD
+                                    4PD0VT01A001=Jarvis_AMD
+                                    4PD0VT01E001=Jarvis_AMD
+                                    4PD0VT01B001=Jarvis_AMD
+                                    4PD0VT01C001=Jarvis_AMD
+
+                                    4PD0V9010001=ArWing_RPL_B2
+                                    4PD0V901A001=ArWing_ARL_B2
+
+                                    4PD0VK01A001=GR_1416D_ARL_CS
+                                    4PD0VH01A001=GR_1416D_ARL_CS
+                                    4PD0VK010001=GR_1416D_ARL_CS
+                                    4PD0VH010001=GR_1416D_ARL_CS
+
+                                    4PD0VB01A001=DIABLOALT3
+                                    4PD0VB010001=DIABLOALT4
+
+                                    4PD0WT010001=GR_1416AMD
+                                    4PD0WT01A001=GR_1416AMD
+                                    4PD0WS010001=GR_1416AMD
+                                    4PD0WS01C001=GR_1416AMD
+                                    4PD0WS01B001=GR_1416AMD
+                                    4PD0WS01A001=GR_1416AMD
+
+                                    4PD0WJ01N001=Jade_ARL_USH
+                                    4PD0WJ01L001=Jade_ARL_USH
+                                    4PD0WJ01K001=Jade_ARL_USH
+                                    4PD0WJ01J001=Jade_ARL_USH
+                                    4PD0WJ01H001=Jade_ARL_USH
+                                    4PD0WJ01G001=Jade_ARL_USH
+
+                                    4PD0WX01A001=Sentry_MLK
+                                    4PD0WX010001=Sentry_MLK
+                                    4PD0WX01B001=Sentry_MLK_KRK
+
+                                    4PD0WX01N001=Sentry_MLK_KRK_SE
+                                    4PD0WX01K001=Sentry_MLK_KRK_SE
+                                    4PD0WX01L001=Sentry_MLK_KRK_SE
+                                    4PD0WX01J001=Sentry_MLK_KRK_SE
+                                    4PD0WX01H001=Sentry_MLK_KRK_SE
+                                    4PD0WX01G001=Sentry_MLK_KRK_SE
+
+                                    4PD0UQ01G001=SentryNVRPL_R
+                                    4PD0UQ01H001=SentryNVRPL_R
+                                    4PD0UQ01K001=SentryNVRPL_R_SE
+                                    4PD0UQ01J001=SentryNVRPL_R_SE
+
+                                    CR=CR
+                                    CR1=CR1
+                                    CR2=CR2
+                                    CR3=CR3
+                                    CR4=CR4
+                                    CR5=CR5
+                                    CR6=CR6
+                                    CR7=CR7
+                                    CR8=CR8
+                                    CR9=CR9
+                                    CR10=CR10
+                                    CR11=CR11
+                                    CR12=CR12
+                                    CR13=CR13
+                                    CR14=CR14
+                                    CR15=CR15
+                                    CR16=CR16
+                                    CR17=CR17
+                                </div>
+                            </div>
+                            <div class="col l-4 m-4 c-6 atd__content atd-9">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <h1 class="pad-5">COMPARE.txt</h1>
+                                    CModel = GOB_FILE
+                                    QuakeN1416=QKN1416_20231220_APLINK.gob
+                                    Arches15=Aches15_RPL20240521.gob
+                                    Arches13=Arches13_RPL20240528.gob
+                                    Arches15H=Aches15_RPL20240521.gob
+                                    Quake_L_RPL=QuakeL_RPL_20250128.gob
+                                    QuakePlus=QuakePlus_20230317_WVN.gob
+                                    Oasis=OASIS20230213_WVN.gob
+                                    QuakeL_ADL=QuakeL_ADL_20250121.gob
+                                    PolarisN1416=Pls_N1416_UMA_20231117.gob
+                                    QKL_MLK_RPL_UI=QKL_MLK_RPL_250115.gob
+                                    QKL_MLK_MTL_UI=QKL_MLK_MTL_20250115.gob
+                                    AR15MLKMTL=Arches15MLK_MTL_20251703.gob
+                                    AR15MLKRPL=Arches15MLK_RPL_20251703.gob
+                                    AR13MLKMTL=Arches13MLK_MTL_202517003.gob
+                                    AR13MLKRPL=Arches13MLK_RPL_20251703.gob
+                                    AR15MLKP=Arches15MLK_MTL_20251703.gob
+                                    DIABLOMTL=DiabloMTL_250212.gob
+                                    Taroko_LNL=taroko_lnl_xbuild.gob
+                                    Taroko_ARL=TAROKO_ARL_270225_WVN.gob
+                                    Taroko_RPL=TAROKO_RPL_20250303.gob
+                                    Scorpio_MTL=Scorpio_MTL_20250121.gob
+                                    SentryIntel=sentryNVRPL0121_8L.gob
+                                    Sentry_AMD=Sentry_AMD_20250122.gob
+                                    OasisMLKRPL=OASIS13MLKRPL_20250120.gob
+                                    OasisMLKMTL=Oasis13MLK_MTL20250202.gob
+                                    javis=JarvisLNL_250205.gob
+                                    JADE_SSD=JadeRPL_SSD_0114_WVN.gob
+                                    GR_1416_ARL_CS=GHOST_RIDER_20250228.gob
+                                    ARWING_MB3=ARWing_HMB3_17032025.gob
+                                    Taroko_AMD=TAROKO_AMD_20250321.gob
+                                    Jade_AMD=JADE_AMD_20252203.gob
+                                    Jade_ARL=JADE_ARL_20252403.gob
+                                    CR=QKL_MLK_MTL_20250115.gob
+                                    CR1=QKL_MLK_RPL_250115.gob
+                                    CR2=QuakeL_ADL_20250121.gob
+                                    CR3=Taroko_LNLXB0601.gob
+                                    CR4=QKL_RPL_20231220_APLINK.gob
+                                    CR6=Quake_L_RPL_20250119.gob
+                                    CR7=TRLNLARV_20250304.gob
+                                    CR8=Arches13MLK_MTL_20241130.gob
+                                    CR9=Arches13MLK_RPL_20241125.gob
+                                    CR10=Arches15MLK_MTL_20241123.gob
+                                    CR11=Arches15MLK_RPL_20241128.gob
+                                    CR12=TAROKO_AMD_20250321.gob
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-3">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="https://mic7v3.wistron.com/Portal/Portal.aspx" target="_blank">
+                                        <div class="product-item__img" style="background-image: url(img/NPI-1.png);">
+                                        </div>
+                                        <h4 class="product-item__name">DT -MIC 7V3</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-18">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="https://wimes-f7v1.wvn-sat-prd-f1.k8s.wistron.com/#/portal/home"
+                                        target="_blank">
+                                        <div class="product-item__img" style="background-image: url(img/wimes.png);">
+                                        </div>
+                                        <h4 class="product-item__name">WIMES | F7V1</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-3">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="https://mic7v1.wistron.com/Portal/Login.aspx" target="_blank">
+                                        <div class="product-item__img"
+                                            style="background-image: url(img/DT-MIC7V3.png);">
+                                        </div>
+                                        <h4 class="product-item__name">NB - MIC 7v1</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-3">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="https://mic7v178.wistron.com/Portal/Login.aspx" target="_blank">
+                                        <div class="product-item__img" style="background-image: url(img/mic7v178.png);">
+                                        </div>
+                                        <h4 class="product-item__name">NB - MIC 7v1- 78</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-1">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="http://10.69.22.37:3000/en/home" target="_blank">
+                                        <div class="product-item__img"
+                                            style="background-image: url(img/atd-systemlink.png);">
+                                        </div>
+                                        <h4 class="product-item__name">System Link
+                                        </h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-1">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="https://hr.wistron.com/psp/PRD/?&cmd=login&languageCd=VIE" target="_blank">
+                                        <div class="product-item__img" style="background-image: url(img/hr.png);">
+                                        </div>
+                                        <h4 class="product-item__name">HR
+                                        </h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-1">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="https://wvnews30-ui.southeastasia.azure.wistron.com/page/index/home-moniter"
+                                        target="_blank">
+                                        <div class="product-item__img" style="background-image: url(img/ewsfe.png);">
+                                        </div>
+                                        <h4 class="product-item__name">Ewsfe
+                                        </h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-1">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="https://plmportal.wistron.com/dashboard" target="_blank">
+                                        <div class="product-item__img" style="background-image: url(img/atd-plm.png);">
+                                        </div>
+                                        <h4 class="product-item__name">PLM - BOM & ECR</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-1">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="https://ecri.wistron.com/#/app" target="_blank">
+                                        <div class="product-item__img" style="background-image: url(img/ecri.png);">
+                                        </div>
+                                        <h4 class="product-item__name">CSD - ECRI</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-1">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="http://wpqssvr.wistron.com.tw/wpqs_plm.htm" target="_blank">
+                                        <div class="product-item__img"
+                                            style="background-image: url(img/check_material.pngzou);">
+                                        </div>
+                                        <h4 class="product-item__name">Check Material</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-4">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="http://10.69.230.18:8800/home/" target="_blank">
+                                        <div class="product-item__img" style="background-image: url(img/tesystem.png);">
+                                        </div>
+                                        <h4 class="product-item__name">TE system</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-2">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="https://wistron-my.sharepoint.com/:x:/r/personal/robert_pham_wistron_com/Documents/Microsoft%20Teams%20Chat%20Files/HandoverShift%E7%99%BD%E5%A4%9C%E7%8F%AD%E4%BA%A4%E6%8E%A5.xlsx?d=w90f97bc050aa46b08ca78e1141a00677&csf=1&web=1&e=vNpBHQ"
+                                        target="_blank">
+                                        <div class="product-item__img"
+                                            style="background-image: url(img/atd-teams.png);">
+                                        </div>
+                                        <h4 class="product-item__name">Handover work</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-2">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="https://wistron-my.sharepoint.com/:x:/p/duong_luong/EdTOj42JVLRDpwoeLw6mEbkB2M8Yh7fBnYtM-XIcu_tsGA?email=Robert_Pham%40wistron.com&wdOrigin=TEAMS-MAGLEV.p2p_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1759800626596&web=1"
+                                        target="_blank">
+                                        <div class="product-item__img"
+                                            style="background-image: url(img/atd-teams.png);">
+                                        </div>
+                                        <h4 class="product-item__name">Follow line</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-2">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="https://wistron.sharepoint.com/:x:/r/teams/WVNP1TEKV1T00Y24/_layouts/15/Doc2.aspx?action=edit&sourcedoc=%7Ba46f4d75-d791-4ede-b8d1-c3b5ac870b22%7D&wdOrigin=TEAMS-MAGLEV.teamsSdk_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1757306126688&web=1"
+                                        target="_blank">
+                                        <div class="product-item__img"
+                                            style="background-image: url(img/atd-teams.png);">
+                                        </div>
+                                        <h4 class="product-item__name">OverTime</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-2">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="https://wistron-my.sharepoint.com/:x:/r/personal/kimo_meng_wistron_com/Documents/TE_Team_meetings.xlsm?d=wb820c8aee0dc45cfb4f327de7b377ecc&csf=1&web=1&e=qVsTHU"
+                                        target="_blank">
+                                        <div class="product-item__img"
+                                            style="background-image: url(img/atd-teams.png);">
+                                        </div>
+                                        <h4 class="product-item__name">Check In & Checkout </h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-2">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="https://wistron-my.sharepoint.com/:x:/p/find_le/EQXCIw9tfJtLvZD0Vb4lMnsB0FH8MwTyAEQb_P8aAQG2Yg?wdOrigin=TEAMS-MAGLEV.p2p_ns.rwc&wdExp=TEAMS-TREATMENT&wdhostclicktime=1758260905218&web=1"
+                                        target="_blank">
+                                        <div class="product-item__img"
+                                            style="background-image: url(img/atd-teams.png);">
+                                        </div>
+                                        <h4 class="product-item__name">Check change Program</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-1">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="https://bpm-oa.wistron.com/common/dashboard" target="_blank">
+                                        <div class="product-item__img"
+                                            style="background-image: url(img/atd-authwt.png);">
+                                        </div>
+                                        <h4 class="product-item__name">TPCN</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-5">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="https://powerbi-wzs.wistron.com/reports/powerbi/WVN/M360/WVN_Dashboard_Management_Center?RS:EMBED=TRUE"
+                                        target="_blank">
+                                        <div class="product-item__img"
+                                            style="background-image: url(img/atd-WVN_managenment.png);">
+                                        </div>
+                                        <h4 class="product-item__name">Wistron Power BI</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-22">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="http://10.69.230.54/service.asmx"
+                                        target="_blank">
+                                        <div class="product-item__img"
+                                            style="background-image: url(img/Service_Web_TE.png);">
+                                        </div>
+                                        <h4 class="product-item__name">Service Web TE</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-5">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="https://powerbi-wzs.wistron.com/reports/powerbi/WVN/KV1000/TE"
+                                        target="_blank">
+                                        <div class="product-item__img"
+                                            style="background-image: url(img/atd-powerbi.png);">
+                                        </div>
+                                        <h4 class="product-item__name">TE Power BI</h4>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col l-2-4 m-4 c-6 atd__content atd-5">
+                                <!-- Product-item -->
+                                <div class="product-item">
+                                    <a href="https://powerbi-wzs.wistron.com/reports/powerbi/WVN/KV1000/FA/Build_13H%20%E9%A0%90%E8%AD%A6%E7%9C%8B%E6%9D%BF"
+                                        target="_blank">
+                                        <div class="product-item__img"
+                                            style="background-image: url(img/FA_delay.png);">
+                                        </div>
+                                        <h4 class="product-item__name">FA Delay</h4>
+                                    </a>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <img class="logo__wistron" src="img/wistron_logo.png" alt="logo wistron">
+</body>
+<script src="script.js"></script>
+
+</html>

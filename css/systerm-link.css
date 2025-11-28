@@ -1,0 +1,131 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
+
+/* ::selection{
+    color: blue;
+    background: #333;
+} */
+html {
+    scroll-behavior: smooth;
+    /* font-family: 'Courier New', Courier, monospace */
+}
+
+/* common */
+.clear {
+    clear: both;
+}
+
+/* main */
+#header {
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: var(--navbar-height-sl);
+    background-color: #000;
+    z-index: 1;
+    font-size: 15px;
+}
+
+#nav {
+    list-style-type: none;
+    display: inline-block;
+}
+
+#nav li {
+    position: relative;
+}
+
+#nav>li {
+    display: inline-block;
+}
+
+#nav>li>a {
+    color: #fff;
+    text-transform: uppercase;
+}
+
+#nav li a {
+    text-decoration: none;
+    line-height: var(--navbar-height-sl);
+    padding: 0 24px;
+    display: block;
+    transition: all .5s linear;
+}
+
+#nav>li:hover>a {
+    background-color: #ccc;
+    color: #000;
+}
+
+#nav>li>a.active {
+    background-color: #ccc;
+    color: #000;
+}
+
+.app__container {
+    margin-top: var(--navbar-height-sl);
+}
+
+.logo__wistron {
+    /* display: none; */
+    position: fixed;
+    left: 15px;
+    bottom: 0;
+    max-width: 100px;
+    height: auto;
+    user-select: none;
+}
+
+/* .atd-15 img, */
+.atd-15 .img-medium,
+.atd-13 img,
+.atd-14 img,
+.atd-10 img {
+    object-fit: cover;
+    max-width: 1000px;
+    min-width: 800px;
+}
+
+.duong1 img {
+    object-fit: cover;
+    max-width: 600px;
+    min-width: 400px;
+}
+
+.atd-7 img {
+    width: 100%;
+    height: auto;
+}
+
+.atd-15 .img-small {
+    max-width: 300px;
+
+}
+
+.pad-5 {
+    padding: 5px;
+}
+
+.text-l {
+    font: 48px;
+    color: #fff;
+}
+
+.text-m {
+    font: 32px;
+    color: #fff;
+
+}
+
+.preload_background {
+    height: 100%;
+    width: 100%;
+    background-color: #ccc;
+}
+
+.atd-19 pre {
+    font-size: 16px;
+}
