@@ -54,11 +54,11 @@
                             <li class="category-item atd" data-target="atd-5">
                                 <a href="" class="category-item__link">Power BI</a>
                             </li>
-                           
+
                             <li class="category-item atd" data-target="atd-7">
                                 <a href="" class="category-item__link">Server</a>
                             </li>
-    
+
                             <li class="category-item atd" data-target="atd-9">
                                 <a href="" class="category-item__link">Máy Copy HDD</a>
                             </li>
@@ -95,7 +95,7 @@
                             <li class="category-item atd" data-target="atd-21">
                                 <a href="" class="category-item__link">AP Check List</a>
                             </li>
-                             <li class="category-item atd" data-target="atd-22">
+                            <li class="category-item atd" data-target="atd-22">
                                 <a href="" class="category-item__link">Service Web TE</a>
                             </li>
                         </ul>
@@ -109,951 +109,1131 @@
                                     <h1>Check Model</h1>
                                     <pre>
 
+                                        @ECHO OFF
+
+:start
+cd /d %~dp0
+COLOR 07
+IF EXIST SYSID.TXT DEL SYSID.LOG
+wmic /namespace:\\root\wmi path MS_SystemInformation get SystemSKU >SYSID.LOG
+
+
+
+REM OdinMLK
+FIND /I "C13" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO OdinMLK
+FIND /I "C16" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO OdinMLK
+
+REM Scorpio_MTL
+FIND /I "C91" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Scorpio_MTL
+
+REM InfinityRPL
+FIND /I "BFB" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Infinity_RPL
+FIND /I "BFC" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Infinity_RPL
+FIND /I "C49" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Infinity_RPL
+FIND /I "C48" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Infinity_RPL
+
+REM InfinityMLK
+FIND /I "C9D" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Infinity18_E
+FIND /I "C9C" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Infinity18_P
+
+REM InfinityAMD
+FIND /I "BFD" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Infinity_AMD
+FIND /I "BFE" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Infinity_AMD
+FIND /I "C4A" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Infinity_AMD
+FIND /I "C4B" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Infinity_AMD
+
+FIND /I "C5A" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Infinity_AMD
+FIND /I "C5B" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Infinity_AMD
+FIND /I "C5D" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Infinity_AMD
+FIND /I "C5E" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Infinity_AMD
+
+FIND /I "C4C" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Infinity_AMD_E4
+::FIND /I "C5F" SYSID.LOG
+::IF "%errorlevel%"=="0" GOTO Infinity18_A
+::FIND /I "BFF" SYSID.LOG
+::IF "%errorlevel%"=="0" GOTO Infinity16_A
+::FIND /I "C4C" SYSID.LOG
+::IF "%errorlevel%"=="0" GOTO Infinity18_A
+::FIND /I "C5C" SYSID.LOG
+::IF "%errorlevel%"=="0" GOTO Infinity16_A
+
+REM OasisRPL
+FIND /I "C08" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Oasis13_RPL
+FIND /I "C09" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Oasis13_RPL
+FIND /I "C0A" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Oasis13_RPL
+
+
+REM OasisMTL
+FIND /I "CBD" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Oasis13_MTL
+FIND /I "CBE" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Oasis13_MTL
+FIND /I "CBF" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Oasis13_MTL
+
+
+REM OasisMLKRPL
+FIND /I "CC0" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Oasis13_MLK_RPL
+
+
+REM QuakePlus
+FIND /I "C1F" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO QuakePlus
+FIND /I "C20" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO QuakePlus
+FIND /I "C28" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO QuakePlus
+
+
+REM Arches15
+FIND /I "C05" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Arches15
+FIND /I "C06" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Arches15
+FIND /I "C07" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Arches15
+
+
+REM Hellcat_TGL
+FIND /I "9DD" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Hellcat_TGL
+FIND /I "A05" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Hellcat_TGL
+FIND /I "9DE" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Hellcat_TGL
+FIND /I "9DF" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Hellcat_TGL
+
+REM PinehillsMLK
+FIND /I "97F" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO PinehillsMLK
+FIND /I "A13" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO PinehillsMLK
+
+REM BM15
+FIND /I "A67" SYSID.LOG >NUL
+IF NOT ERRORLEVEL 1 GOTO Broadmoor15
+FIND /I "A68" SYSID.LOG >NUL
+IF NOT ERRORLEVEL 1 GOTO Broadmoor15
+
+
+REM CYBGLICL
+FIND /I "A84" SYSID.LOG >NUL
+IF NOT ERRORLEVEL 1 GOTO CyborgLICL
+FIND /I "A85" SYSID.LOG >NUL
+IF NOT ERRORLEVEL 1 GOTO CyborgLICL
+
+
+
+REM CYBGLTGL
+FIND /I "A7B" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgLTGL
+FIND /I "A7C" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgLTGL
+FIND /I "B20" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgLTGL
+FIND /I "B21" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgLTGL
+
+
+REM CYBGAMD
+FIND /I "A77" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgAMD
+FIND /I "AE9" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgAMD
+FIND /I "A78" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgAMD
+FIND /I "AEA" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgAMD
+FIND /I "A79" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgAMD
+FIND /I "AEB" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgAMD
+FIND /I "A7A" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgAMD
+FIND /I "AEC" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgAMD
+
+REM CYBGNVTGL
+FIND /I "A7D" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+FIND /I "A7E" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+FIND /I "A7F" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+FIND /I "A80" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+FIND /I "AE3" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+FIND /I "AE4" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+FIND /I "AE5" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+FIND /I "AE6" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+FIND /I "B23" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+FIND /I "B24" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+FIND /I "B25" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+FIND /I "B26" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+FIND /I "B2C" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+FIND /I "B2D" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+FIND /I "B2E" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+FIND /I "B2F" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO CyborgNVTGL
+
+
+REM SP15TGL
+FIND /I "A21" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SP15TGL
+FIND /I "A22" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SP15TGL
+
+
+
+REM SP15CML
+FIND /I "A41" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SP15CML
+
+REM SP13TGL
+FIND /I "A42" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SP13TGL
+FIND /I "A1F" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SP13TGL
+
+REM WMAMD
+FIND /I "A8C" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Watchmen_AMD
+
+REM Watchmen_TGL
+FIND /I "A89" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO WatchmenTGL
+FIND /I "AA9" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO WatchmenTGL
+
+REM MoonKnight
+FIND /I "A86" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO MoonKnight
+FIND /I "A87" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO MoonKnight
+
+REM MoonKnightL
+FIND /I "A88" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO MoonKnightL
+
+REM ODIN_AMD
+FIND /I "B46" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO ODIN_AMD
+FIND /I "B7E" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO ODIN_AMD
+FIND /I "B47" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO ODIN_AMD
+FIND /I "B7F" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO ODIN_AMD
+FIND /I "B48" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO ODIN_AMD
+
+
+REM ANTAMD
+FIND /I "B38" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Antman_AMD
+
+REM SP15MLKADL
+FIND /I "A21" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SP15MLKADL
+FIND /I "B06" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SP15MLKADL
+FIND /I "B07" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SP15MLKADL
+FIND /I "B08" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SP15MLKADL
+
+
+REM SP13MLK
+FIND /I "B02" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SP13MLK
+FIND /I "B03" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SP13MLK
+
+
+REM ODINL13TGL
+FIND /I "B43" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO OdinL13TGL
+
+REM BM15MLK
+FIND /I "B0F" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO BM15MLK
+FIND /I "B10" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO BM15PMLK
+
+REM Ant14ADL
+FIND /I "B36" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Ant14ADL
+
+REM Ant16ADL
+FIND /I "B37" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Ant16ADL
+
+Rem ODIN_H
+FIND /I "B4A" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO ODIN_H
+FIND /I "B3C" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO ODIN_H
+FIND /I "B3F" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO ODIN_H
+
+Rem ODIN_H_RTX
+FIND /I "B71" SYSID.LOG
+IF "%errorlevel%"=="0" ODIN_H_RTX
+
+Rem Odin_CR
+FIND /I "BA8" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Odin_CR
+FIND /I "BAA" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Odin_CR
+FIND /I "BAE" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Odin_CR
+
+Rem Millennio_Wlan
+FIND /I "B34" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Millennio_Wlan
+FIND /I "B49" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Millennio_5G
+
+
+Rem QuakeRPL
+FIND /I "C14" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO QuakeN1416
+FIND /I "C15" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO QuakeN1416
+FIND /I "C17" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO QuakeN1416
+FIND /I "C18" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO QuakeN1416
+
+REM Quake_L_RPl
+FIND /I "C19" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO QuakeL_RPL
+FIND /I "C1D" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO QuakeL_RPL
+FIND /I "C1E" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO QuakeL_RPL
+
+REM Stradale_RPL
+FIND /I "BDb" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Stradale_RPL
+FIND /I "BDA" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Stradale_RPL
+
+REM ARCHES13
+rem -----CS-------
+FIND /I "C03" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO ARCHES13
+REM ------2IN1------
+FIND /I "C04" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO ARCHES13
+
+REM Quake_ADL
+FIND /I "C1A" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Quake_ADL
+FIND /I "C1B" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Quake_ADL
+FIND /I "C1C" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Quake_ADL
+
+REM PolarisN1416
+FIND /I "C93" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO PolarisN1416
+FIND /I "C94" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO PolarisN1416
+FIND /I "C95" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO PolarisN1416
+FIND /I "C96" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO PolarisN1416
+
+
+REM QKL_MLK_RPL
+FIND /I "C97" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO QKL_MLK_RPL
+FIND /I "C98" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO QKL_MLK_RPL
+
+REM QKL_MLK_MTL
+FIND /I "C99" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO QKL_MLK_MTL
+FIND /I "C9A" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO QKL_MLK_MTL
+
+REM Arches15MLK
+FIND /I "CBC" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Arches15MLK_RPL
+FIND /I "CB9" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Arches15MLK_MTL
+FIND /I "CBA" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Arches15MLK_MTL
+FIND /I "CBB" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Arches15MLK_MTL
+
+REM Arches13MLK
+FIND /I "CB5" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Arches13MLK_MTL
+FIND /I "CB6" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Arches13MLK_MTL
+FIND /I "CB7" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Arches13MLK_RPL
+FIND /I "CB8" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Arches13MLK_RPL
+
+
+REM DIABLO
+FIND /I "C63" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO DIABLO_MTL
+FIND /I "C62" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO DIABLO_MTL
+
+REM DIABLO
+FIND /I "CE7" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO DIABLO_ARL
+FIND /I "CE6" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO DIABLO_ARL
+
+
+REM TarokoLNL
+FIND /I "CDD" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Taroko_LNL
+
+FIND /I "CDC" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Taroko_LNL
+
+FIND /I "CDB" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Taroko_LNL
+
+
+
+rem TAROKO_ARL
+FIND /I "CF4" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Taroko_ARL
+
+FIND /I "CF3" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Taroko_ARL
+
+FIND /I "CF5" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Taroko_ARL
+
+
+rem TAROKO_RPL
+FIND /I "CF6" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Taroko_RPL
+
+
+REM GhostRider
+FIND /I "CF0" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO GhostRider_UI
+
+FIND /I "CF1" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO GhostRider_UI
+
+REM SentryN14_2in1
+FIND /I "CA3" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SentryN14_2in1
+FIND /I "CA4" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SentryN14_2in1
+FIND /I "CA5" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SentryN14_2in1
+FIND /I "CA6" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SentryN14_2in1
+FIND /I "CA7" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SentryN14_2in1
+
+REM Sentry_AMD
+FIND /I "CA8" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Sentry_AMD
+FIND /I "CAA" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Sentry_AMD
+FIND /I "CA9" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Sentry_AMD
+
+REM JAVIS_LNL
+FIND /I "D2D" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO JARVIS
+
+FIND /I "D2E" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO JARVIS
+
+FIND /I "D30" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO JARVIS
+
+FIND /I "D31" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO JARVIS
+
+
+REM Arwing_RPL_B2_AND_B3
+FIND /I "D35" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO ArwingRPL
+
+
+REM Arwing_ARL B2
+FIND /I "D34" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO ArwingARL
+
+REM Arwing_MLK
+
+FIND /I "DBB" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Arwing_MLK
+FIND /I "DD7" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Arwing_MLK
+
+rem ==== TAROKO AMD
+
+REM =====CS HPT1======
+FIND /I "D47" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Taroko_AMD
+REM =====CS HPT2======
+FIND /I "D48" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Taroko_AMD
+REM =====CS KRK======
+FIND /I "D49" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Taroko_AMD
+REM =====2IN1 HPT1======
+FIND /I "D4A" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Taroko_AMD
+REM =====2IN1 HPT2======
+FIND /I "D4B" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Taroko_AMD
+REM =====2IN1 KRK======
+FIND /I "D4C" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Taroko_AMD
+REM =====CS Strix======
+FIND /I "D61" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Taroko_AMD
+REM =====2IN1 Strix======
+FIND /I "D62" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Taroko_AMD
+REM ========16CS HPT1====
+FIND /I "D4D" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Taroko_AMD
+REM ========16CS HPT2====
+FIND /I "D4E" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Taroko_AMD
+REM ========16CS KRK====
+FIND /I "D4F" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Taroko_AMD
+REM ========16CS Strix====
+FIND /I "D65" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Taroko_AMD
+
+rem====Jade_AMD=====
+FIND /I "D50" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO JadeAMD
+FIND /I "D51" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO JadeAMD
+FIND /I "D52" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO JadeAMD
+FIND /I "D53" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO JadeAMD
+FIND /I "D54" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO JadeAMD
+FIND /I "D55" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO JadeAMD
+
+rem====Jade_ARL=====
+FIND /I "D63" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO JadeARL
+FIND /I "D64" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO JadeARL
+FIND /I "D96" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO JadeARL
+FIND /I "D97" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO JadeARL
+
+
+rem====Jade_SSDRPL=====
+FIND /I "CFB" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO JadeRPL
+FIND /I "CFC" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO JadeRPL
+
+rem====Javis_amd=====
+FIND /I "D6E" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO JarvisAMD
+FIND /I "D6F" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO JarvisAMD
+FIND /I "D70" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO JarvisAMD
+
+
+rem====GhostRider_amd=====
+FIND /I "D80" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Ghost_rider_AMD
+FIND /I "D81" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Ghost_rider_AMD
+FIND /I "D82" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Ghost_rider_AMD
+FIND /I "D83" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Ghost_rider_AMD
+
+rem====Sentry_MLK_AMD=====
+FIND /I "D72" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Sentry_MLK
+FIND /I "D71" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Sentry_MLK
+FIND /I "D92" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Sentry_MLK
+
+FIND /I "DEB" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Sentry_MLKSE
+FIND /I "DEA" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Sentry_MLKSE
+FIND /I "DEC" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Sentry_MLKSE
+
+
+rem====SentryNVRPL_R=====
+FIND /I "D9B" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SentryNVRPL_R
+FIND /I "D9C" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SentryNVRPL_R
+
+FIND /I "CA3" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SentryNVRPL_RSE
+
+FIND /I "CA4" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SentryNVRPL_RSE
+FIND /I "CA5" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SentryNVRPL_RSE
+FIND /I "CA6" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SentryNVRPL_RSE
+FIND /I "CA7" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SentryNVRPL_RSE
+FIND /I "DE8" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO SentryNVRPL_RSE
+
+
+rem====HURACAN_PERFOMATE=====
+FIND /I "DB9" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO HP_PTL
+FIND /I "DBA" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO HP_PTL
+
+rem====SENTRY_ARL=====
+FIND /I "E08" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Sentry_ARL
+FIND /I "E09" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO Sentry_ARL
+
+rem====GhostRiderMLK=====
+REM GR14MLK
+FIND /I "DBC" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO GhostRider14MLK
+
+REM GR16MLK
+FIND /I "DBD" SYSID.LOG
+IF "%errorlevel%"=="0" GOTO GhostRider16MLK
+goto fail
+
+:GhostRider14MLK
+SET MODELFULL=GhostRider14MLK
+SET ModelPath=GhostRiderMLK_UI
+goto PASS
+
+:GhostRider16MLK
+SET MODELFULL=GhostRider16MLK
+SET ModelPath=GhostRiderMLK_UI
+goto PASS
+
+:Sentry_ARL
+SET MODELFULL=Sentry_ARL
+SET ModelPath=Sentry_ARL_UI
+goto PASS
+
+:HP_PTL
+SET MODELFULL=HP_PTL
+SET ModelPath=HP_PTL_UI
+goto PASS
+
+:SentryNVRPL_R
+SET MODELFULL=SentryNVRPL_R
+SET ModelPath=SentryNVRPL_R_UI
+goto PASS
+
+:SentryNVRPL_RSE
+SET MODELFULL=SentryNVRPL_RSE
+SET ModelPath=SentryNVRPL_R_UI
+goto PASS
+
+
+:Sentry_MLK
+SET MODELFULL=Sentry_MLK
+SET ModelPath=SentryMLK_UI
+goto PASS
+
+
+:Sentry_MLKSE
+SET MODELFULL=Sentry_MLKSE
+SET ModelPath=SentryMLK_UI
+goto PASS
+
+:JadeARL
+SET MODELFULL=Jade_ARL
+SET ModelPath=JadeARL_UI
+
+if @%MODELFAMILY%==@4PD0WJ01N001 (
+SET MODELFULL=JadeUSH
+SET ModelPath=JadeUSH_UI)
+
+if @%MODELFAMILY%==@4PD0WJ01L001 (
+SET MODELFULL=JadeUSH
+SET ModelPath=JadeUSH_UI)
+
+if @%MODELFAMILY%==@4PD0WJ01K001 (
+SET MODELFULL=JadeUSH
+SET ModelPath=JadeUSH_UI)
+
+if @%MODELFAMILY%==@4PD0WJ01J001 (
+SET MODELFULL=JadeUSH
+SET ModelPath=JadeUSH_UI)
+
+if @%MODELFAMILY%==@4PD0WJ01H001 (
+SET MODELFULL=JadeUSH
+SET ModelPath=JadeUSH_UI)
+
+if @%MODELFAMILY%==@4PD0WJ01G001 (
+SET MODELFULL=JadeUSH
+SET ModelPath=JadeUSH_UI)
+goto PASS
+
+:JadeRPL
+SET MODELFULL=Jade_RPL
+SET ModelPath=Jade1416_UI
+goto PASS
+
+:JadeAMD
+SET MODELFULL=Jade_AMD
+SET ModelPath=Jade_AMD_UI
+goto PASS
+
+:Taroko_AMD
+SET MODELFULL=Taroko_AMD
+SET ModelPath=Taroko_AMD_UI
+goto PASS
+
+
+:JARVIS
+SET MODELFULL=JARVIS_LNL
+SET ModelPath=Jarvis_UI
+goto PASS
+
+
+
+:SentryN14_2in1
+SET MODELFULL=SentryN14_2in1
+SET ModelPath=SentryNVRPL_UI
+goto PASS
+
+:Sentry_AMD
+SET MODELFULL=Sentry_AMD
+SET ModelPath=Sentry_AMD_UI
+goto PASS
+
+
+:DIABLO_MTL
+SET MODELFULL=DIABLO_MTL
+SET ModelPath=Diablo_MTL_UI
+goto PASS
+
+:DIABLO_ARL
+SET MODELFULL=DIABLO_ARL
+SET ModelPath=Diablo_ARL_UI
+goto PASS
+
+:Arches13MLK_MTL
+SET MODELFULL=Arches13MLK_MTL
+SET ModelPath=Arches13MLK_UI
+GOTO PASS
+
+:Arches13MLK_RPL
+SET MODELFULL=Arches13MLK_RPL
+SET ModelPath=Arches13MLK_UI
+GOTO PASS
+
+:Arches15MLK_MTL
+SET MODELFULL=Arches15MLK_MTL
+SET ModelPath=Arches15MLK_UI
+GOTO PASS
+
+:Arches15MLK_RPL
+SET MODELFULL=Arches15MLK_RPL
+SET ModelPath=Arches15MLK_UI
+GOTO PASS
+
+:QKL_MLK_MTL
+SET MODELFULL=QKL_MLK_MTL
+SET ModelPath=QKL_MLK_MTL_UI
+GOTO PASS
+
+
+:QKL_MLK_RPL
+SET MODELFULL=QKL_MLK_RPL
+SET ModelPath=QKL_MLK_RPL_UI
+GOTO PASS
+
+:Infinity18_E
+SET MODELFULL=Infinity_MLK
+SET ModelPath=Infinity_MLK_UI
+GOTO PASS
+
+
+:Infinity18_P
+SET MODELFULL=Infinity_MLK
+SET ModelPath=Infinity_MLK_UI
+GOTO PASS
+
+:ARCHES13
+SET MODELFULL=Arches13
+SET ModelPath=Arches13_UI
+GOTO PASS
+
+:OdinMLK
+SET MODELFULL=OdinMLK
+SET ModelPath=OdinMLK_UI
+GOTO PASS
+
+:Stradale_RPL
+SET MODELFULL=Stradale_RPL
+SET ModelPath=Stradale_RPL_UI
+GOTO PASS
+
+:Infinity_AMD
+SET MODELFULL=Infinity_AMD
+SET ModelPath=Infinity_AMD_UI
+GOTO PASS
+
+:Infinity_AMD_E4
+SET MODELFULL=Infinity_AMD_E4
+SET ModelPath=Infinity_AMD_UI
+GOTO PASS
+
+:Infinity_RPL
+SET MODELFULL=Infinity_RPL
+SET ModelPath=Infinity_RPL_UI
+GOTO PASS
+
+:Oasis13_RPL
+SET MODELFULL=Oasis13_RPL
+SET ModelPath=Oasis13_RPL_UI
+GOTO PASS
+
+:Oasis13_MTL
+SET MODELFULL=Oasis13_MTL
+SET ModelPath=Oasis13_MTL_UI
+GOTO PASS
+
+:Oasis13_MLK_RPL
+SET MODELFULL=Oasis13_MLK_RPL
+SET ModelPath=Oasis13MLK_RPL_UI
+GOTO PASS
+
+:QuakePlus
+SET MODELFULL=QuakePlus
+SET ModelPath=QuakePlus_UI
+GOTO PASS
+
+:Arches15
+SET MODELFULL=Arches15
+SET ModelPath=Arches15_UI
+GOTO PASS
+
+:QuakeL_RPL
+SET MODELFULL=QuakeL_RPL
+SET ModelPath=Quake_L_RPL_UI
+GOTO PASS
+
+
+:QuakeN1416
+SET MODELFULL=QuakeN1416
+SET ModelPath=QuakeN1416_UI
+GOTO PASS
+
+
+
+:Millennio_Wlan
+SET MODELFULL=Millennio
+SET ModelPath=Millennio_ADL_UI
+GOTO PASS
+
+
+:Millennio_5G
+SET MODELFULL=Millennio
+SET ModelPath=Millennio_ADL_UI
+GOTO PASS
+
+:BM15MLK
+SET MODELFULL=BM15MLK
+SET ModelPath=Broadmoor15MLK_UI
+GOTO PASS
+
+:BM15PMLK
+SET MODELFULL=BM15PMLK
+SET ModelPath=Broadmoor15MLK_UI
+GOTO PASS
+
+:OdinL13TGL
+SET MODELFULL=ODINL13TGL
+SET ModelPath=OdinL13_TGL_UI
+GOTO PASS
+
+:SP13MLK
+SET MODELFULL=SP13MLK
+SET ModelPath=SP13MLK_UI
+GOTO PASS
+
+:SP15MLKADL
+SET MODELFULL=SP15MLKADL
+SET ModelPath=SP15MLK_ADL_UI
+GOTO PASS
+
+
+:MoonKnight
+SET MODELFULL=MoonKnight
+SET ModelPath=MoonKnight_UI
+GOTO PASS
+
+:MoonKnightL
+SET MODELFULL=MoonKnightL
+SET ModelPath=MoonKnightL_UI
+GOTO PASS
+
+
+
+:PinehillsMLK
+SET MODELFULL=PinehillsMLK
+SET ModelPath=PinehillsMLK_UI
+GOTO PASS
+
+
+:Hellcat_TGL
+SET MODELFULL=Hellcat_TGL
+SET ModelPath=Hellcat_TGL_UI
+GOTO PASS
+
+:WatchmenTGL
+SET MODELFULL=Watchmen_TGL
+SET ModelPath=Watchmen_TGL_UI
+GOTO PASS
+
+:Broadmoor15
+SET MODELFULL=Broadmoor15TGL
+SET ModelPath=BroadMoor15_UI
+GOTO PASS
+
+:CyborgLICL
+SET MODELFULL=CyborgLICL
+SET ModelPath=Cyborg_L_ICL_UI
+GOTO PASS
+
+
+:CyborgLTGL
+SET MODELFULL=CyborgLTGL
+SET ModelPath=Cyborg_L_TGL_UI
+GOTO PASS
+
+
+:CyborgAMD
+SET MODELFULL=Cyborg_AMD
+SET ModelPath=CyborgAMD_UI
+GOTO PASS
+
+:CyborgNVTGL
+SET MODELFULL=Cyborg_NVTGL
+SET ModelPath=CyborgNVTGL_UI
+GOTO PASS
+
+
+:SP15TGL
+SET MODELFULL=SP15TGL
+SET ModelPath=SouthPeak15_UI
+GOTO PASS
+
+:SP15CML
+SET MODELFULL=SP15CML
+SET ModelPath=SouthPeak15CML_UI
+GOTO PASS
+
+
+:SP13TGL
+SET MODELFULL=SP13TGL
+SET ModelPath=SouthPeak13_UI
+GOTO PASS
+
+:Watchmen_AMD
+SET MODELFULL=Watchmen_AMD
+SET ModelPath=Watchmen_AMD_UI
+GOTO PASS
+
+:ODIN_AMD
+SET MODELFULL=ODIN_AMD
+SET ModelPath=ODIN_AMD_UI
+GOTO PASS
+
+:Antman_AMD
+SET MODELFULL=Antman_AMD
+SET ModelPath=Antman_AMD_UI
+GOTO PASS
+
+
+:Ant16ADL
+SET MODELFULL=Ant16ADL
+SET ModelPath=Antman_ADL_UI
+GOTO PASS
+
+:Ant14ADL
+SET MODELFULL=Ant14ADL
+SET ModelPath=Antman_ADL_UI
+GOTO PASS
+
+
+:ODIN_H_RTX
+SET MODELFULL=ODIN_H_RTX
+SET ModelPath=Odin_H_UI
+GOTO PASS
+
+:ODIN_H
+SET MODELFULL=ODIN_H
+SET ModelPath=Odin_H_UI
+GOTO PASS
+
+
+:Odin_CR
+SET MODELFULL=ODIN_CR
+SET ModelPath=OdinNV1416_CR_UI
+GOTO PASS
+
+:Quake_ADL
+SET MODELFULL=Quake_ADL
+SET ModelPath=Quake_L_ADL_UI
+GOTO PASS
+
+:PolarisN1416
+SET MODELFULL=PolarisN1416
+SET ModelPath=PolarisN1416_UI
+GOTO PASS
+
+
+:Taroko_LNL
+SET MODELFULL=Taroko_LNL
+SET ModelPath=Taroko_LNL_UI
+GOTO PASS
+
+:Taroko_ARL
+SET MODELFULL=Taroko_ARL
+SET ModelPath=Taroko_ARL_UI
+GOTO PASS
+
+:Taroko_RPL
+SET MODELFULL=Taroko_RPL
+SET ModelPath=Taroko_RPL_UI
+GOTO PASS
+
+:Scorpio_MTL
+SET MODELFULL=Scorpio_MTL
+SET ModelPath=Scorpio_MTL_UI
+GOTO PASS
+
+:GhostRider_UI
+
+SET MODELFULL=GhostRider
+SET ModelPath=GhostRider_UI
+
+if @%MODELFAMILY%==@4PD0VH01A001 (
+SET MODELFULL=GhostRiderDIS
+SET ModelPath=GhostRider_UI)
+
+if @%MODELFAMILY%==@4PD0VK01A001 (
+SET MODELFULL=GhostRiderDIS
+SET ModelPath=GhostRider_UI)
+GOTO PASS
+
+:Ghost_rider_AMD
+SET MODELFULL=GHOST_RIDER_AMD
+SET ModelPath=GhostRiderAMD_UI
+GOTO PASS
+
+:ArwingRPL
+REM ====ArWing_RPL_MB3=====
+
+SET MODELFULL=AW_ARWING_H_MB3
+SET ModelPath=Arwing_UI
+
+REM ====ArWing_RPL_MB2=====
+
+IF @%MODELFAMILY%==@4PD0V9010001 (
+SET MODELFULL=AW_ARWING_RPL_B2
+SET ModelPath=Arwing_UI)
+GOTO PASS
+
+:ArwingARL
+SET MODELFULL=AW_ARWING_ARL_B2
+SET ModelPath=Arwing_UI
+GOTO PASS
+
+:Arwing_MLK
+SET MODELFULL=Arwing_MLK
+SET ModelPath=Arwing_MLK_UI
+GOTO PASS
+
+:JarvisAMD
+SET MODELFULL=Jarvis_AMD
+SET ModelPath=JarvisAMD_UI
+GOTO PASS
+
+
+
+:FAIL
+cls
+color 4E
+ECHO      MODEL NG
+ECHO Please check model !
+ECHO Please check model !
+ECHO Please check model !
+PAUSE
+GOTO START
+exit /b 1
+
+
+:PASS
+ECHO MODELFULL=%MODELFULL%
+ECHO ModelPath=%ModelPath%
+DEL SYSID.LOG
+exit /b 0
 
-                                    @ECHO OFF
-
-                                    :start
-                                    cd /d %~dp0
-                                    COLOR 07
-                                    IF EXIST SYSID.TXT DEL SYSID.LOG
-                                    wmic /namespace:\\root\wmi path MS_SystemInformation get SystemSKU >SYSID.LOG
-
-
-
-                                    REM OdinMLK
-                                    FIND /I "C13" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO OdinMLK
-                                    FIND /I "C16" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO OdinMLK
-
-                                    REM Scorpio_MTL
-                                    FIND /I "C91" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Scorpio_MTL
-
-                                    REM InfinityRPL
-                                    FIND /I "BFB" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Infinity_RPL
-                                    FIND /I "BFC" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Infinity_RPL
-                                    FIND /I "C49" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Infinity_RPL
-                                    FIND /I "C48" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Infinity_RPL
-
-                                    REM InfinityMLK
-                                    FIND /I "C9D" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Infinity18_E
-                                    FIND /I "C9C" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Infinity18_P
-
-                                    REM InfinityAMD
-                                    FIND /I "BFD" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Infinity_AMD
-                                    FIND /I "BFE" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Infinity_AMD
-                                    FIND /I "C4A" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Infinity_AMD
-                                    FIND /I "C4B" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Infinity_AMD
-
-                                    FIND /I "C5A" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Infinity_AMD
-                                    FIND /I "C5B" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Infinity_AMD
-                                    FIND /I "C5D" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Infinity_AMD
-                                    FIND /I "C5E" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Infinity_AMD
-
-                                    FIND /I "C4C" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Infinity_AMD_E4
-                                    ::FIND /I "C5F" SYSID.LOG
-                                    ::IF "%errorlevel%"=="0" GOTO Infinity18_A
-                                    ::FIND /I "BFF" SYSID.LOG
-                                    ::IF "%errorlevel%"=="0" GOTO Infinity16_A
-                                    ::FIND /I "C4C" SYSID.LOG
-                                    ::IF "%errorlevel%"=="0" GOTO Infinity18_A
-                                    ::FIND /I "C5C" SYSID.LOG
-                                    ::IF "%errorlevel%"=="0" GOTO Infinity16_A
-
-                                    REM OasisRPL
-                                    FIND /I "C08" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Oasis13_RPL
-                                    FIND /I "C09" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Oasis13_RPL
-                                    FIND /I "C0A" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Oasis13_RPL
-
-
-                                    REM OasisMTL
-                                    FIND /I "CBD" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Oasis13_MTL
-                                    FIND /I "CBE" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Oasis13_MTL
-                                    FIND /I "CBF" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Oasis13_MTL
-
-
-                                    REM OasisMLKRPL
-                                    FIND /I "CC0" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Oasis13_MLK_RPL
-
-
-                                    REM QuakePlus
-                                    FIND /I "C1F" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO QuakePlus
-                                    FIND /I "C20" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO QuakePlus
-                                    FIND /I "C28" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO QuakePlus
-
-
-                                    REM Arches15
-                                    FIND /I "C05" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Arches15
-                                    FIND /I "C06" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Arches15
-                                    FIND /I "C07" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Arches15
-
-
-                                    REM Hellcat_TGL
-                                    FIND /I "9DD" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Hellcat_TGL
-                                    FIND /I "A05" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Hellcat_TGL
-                                    FIND /I "9DE" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Hellcat_TGL
-                                    FIND /I "9DF" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Hellcat_TGL
-
-                                    REM PinehillsMLK
-                                    FIND /I "97F" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO PinehillsMLK
-                                    FIND /I "A13" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO PinehillsMLK
-
-                                    REM BM15
-                                    FIND /I "A67" SYSID.LOG >NUL
-                                    IF NOT ERRORLEVEL 1 GOTO Broadmoor15
-                                    FIND /I "A68" SYSID.LOG >NUL
-                                    IF NOT ERRORLEVEL 1 GOTO Broadmoor15
-
-
-                                    REM CYBGLICL
-                                    FIND /I "A84" SYSID.LOG >NUL
-                                    IF NOT ERRORLEVEL 1 GOTO CyborgLICL
-                                    FIND /I "A85" SYSID.LOG >NUL
-                                    IF NOT ERRORLEVEL 1 GOTO CyborgLICL
-
-
-
-                                    REM CYBGLTGL
-                                    FIND /I "A7B" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgLTGL
-                                    FIND /I "A7C" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgLTGL
-                                    FIND /I "B20" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgLTGL
-                                    FIND /I "B21" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgLTGL
-
-
-                                    REM CYBGAMD
-                                    FIND /I "A77" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgAMD
-                                    FIND /I "AE9" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgAMD
-                                    FIND /I "A78" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgAMD
-                                    FIND /I "AEA" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgAMD
-                                    FIND /I "A79" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgAMD
-                                    FIND /I "AEB" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgAMD
-                                    FIND /I "A7A" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgAMD
-                                    FIND /I "AEC" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgAMD
-
-                                    REM CYBGNVTGL
-                                    FIND /I "A7D" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
-                                    FIND /I "A7E" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
-                                    FIND /I "A7F" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
-                                    FIND /I "A80" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
-                                    FIND /I "AE3" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
-                                    FIND /I "AE4" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
-                                    FIND /I "AE5" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
-                                    FIND /I "AE6" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
-                                    FIND /I "B23" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
-                                    FIND /I "B24" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
-                                    FIND /I "B25" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
-                                    FIND /I "B26" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
-                                    FIND /I "B2C" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
-                                    FIND /I "B2D" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
-                                    FIND /I "B2E" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
-                                    FIND /I "B2F" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO CyborgNVTGL
-
-
-                                    REM SP15TGL
-                                    FIND /I "A21" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO SP15TGL
-                                    FIND /I "A22" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO SP15TGL
-
-
-
-                                    REM SP15CML
-                                    FIND /I "A41" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO SP15CML
-
-                                    REM SP13TGL
-                                    FIND /I "A42" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO SP13TGL
-                                    FIND /I "A1F" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO SP13TGL
-
-                                    REM WMAMD
-                                    FIND /I "A8C" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Watchmen_AMD
-
-                                    REM Watchmen_TGL
-                                    FIND /I "A89" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO WatchmenTGL
-                                    FIND /I "AA9" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO WatchmenTGL
-
-                                    REM MoonKnight
-                                    FIND /I "A86" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO MoonKnight
-                                    FIND /I "A87" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO MoonKnight
-
-                                    REM MoonKnightL
-                                    FIND /I "A88" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO MoonKnightL
-
-                                    REM ODIN_AMD
-                                    FIND /I "B46" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO ODIN_AMD
-                                    FIND /I "B7E" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO ODIN_AMD
-                                    FIND /I "B47" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO ODIN_AMD
-                                    FIND /I "B7F" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO ODIN_AMD
-                                    FIND /I "B48" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO ODIN_AMD
-
-
-                                    REM ANTAMD
-                                    FIND /I "B38" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Antman_AMD
-
-                                    REM SP15MLKADL
-                                    FIND /I "A21" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO SP15MLKADL
-                                    FIND /I "B06" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO SP15MLKADL
-                                    FIND /I "B07" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO SP15MLKADL
-                                    FIND /I "B08" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO SP15MLKADL
-
-
-                                    REM SP13MLK
-                                    FIND /I "B02" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO SP13MLK
-                                    FIND /I "B03" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO SP13MLK
-
-
-                                    REM ODINL13TGL
-                                    FIND /I "B43" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO OdinL13TGL
-
-                                    REM BM15MLK
-                                    FIND /I "B0F" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO BM15MLK
-                                    FIND /I "B10" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO BM15PMLK
-
-                                    REM Ant14ADL
-                                    FIND /I "B36" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Ant14ADL
-
-                                    REM Ant16ADL
-                                    FIND /I "B37" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Ant16ADL
-
-                                    Rem ODIN_H
-                                    FIND /I "B4A" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO ODIN_H
-                                    FIND /I "B3C" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO ODIN_H
-                                    FIND /I "B3F" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO ODIN_H
-
-                                    Rem ODIN_H_RTX
-                                    FIND /I "B71" SYSID.LOG
-                                    IF "%errorlevel%"=="0" ODIN_H_RTX
-
-                                    Rem Odin_CR
-                                    FIND /I "BA8" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Odin_CR
-                                    FIND /I "BAA" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Odin_CR
-                                    FIND /I "BAE" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Odin_CR
-
-                                    Rem Millennio_Wlan
-                                    FIND /I "B34" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Millennio_Wlan
-                                    FIND /I "B49" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Millennio_5G
-
-
-                                    Rem QuakeRPL
-                                    FIND /I "C14" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO QuakeN1416
-                                    FIND /I "C15" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO QuakeN1416
-                                    FIND /I "C17" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO QuakeN1416
-                                    FIND /I "C18" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO QuakeN1416
-
-                                    REM Quake_L_RPl
-                                    FIND /I "C19" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO QuakeL_RPL
-                                    FIND /I "C1D" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO QuakeL_RPL
-                                    FIND /I "C1E" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO QuakeL_RPL
-
-                                    REM Stradale_RPL
-                                    FIND /I "BDb" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Stradale_RPL
-                                    FIND /I "BDA" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Stradale_RPL
-
-                                    REM ARCHES13
-                                    rem -----CS-------
-                                    FIND /I "C03" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO ARCHES13
-                                    REM ------2IN1------
-                                    FIND /I "C04" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO ARCHES13
-
-                                    REM Quake_ADL
-                                    FIND /I "C1A" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Quake_ADL
-                                    FIND /I "C1B" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Quake_ADL
-                                    FIND /I "C1C" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Quake_ADL
-
-                                    REM PolarisN1416
-                                    FIND /I "C93" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO PolarisN1416
-                                    FIND /I "C94" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO PolarisN1416
-                                    FIND /I "C95" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO PolarisN1416
-                                    FIND /I "C96" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO PolarisN1416
-
-
-                                    REM QKL_MLK_RPL
-                                    FIND /I "C97" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO QKL_MLK_RPL
-                                    FIND /I "C98" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO QKL_MLK_RPL
-
-                                    REM QKL_MLK_MTL
-                                    FIND /I "C99" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO QKL_MLK_MTL
-                                    FIND /I "C9A" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO QKL_MLK_MTL
-
-                                    REM Arches15MLK
-                                    FIND /I "CBC" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Arches15MLK_RPL
-                                    FIND /I "CB9" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Arches15MLK_MTL
-                                    FIND /I "CBA" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Arches15MLK_MTL
-                                    FIND /I "CBB" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Arches15MLK_MTL
-
-                                    REM Arches13MLK
-                                    FIND /I "CB5" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Arches13MLK_MTL
-                                    FIND /I "CB6" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Arches13MLK_MTL
-                                    FIND /I "CB7" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Arches13MLK_RPL
-                                    FIND /I "CB8" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Arches13MLK_RPL
-
-
-                                    REM DIABLO
-                                    FIND /I "C63" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO DIABLO_MTL
-                                    FIND /I "C62" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO DIABLO_MTL
-
-                                    REM DIABLO
-                                    FIND /I "CE7" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO DIABLO_ARL
-                                    FIND /I "CE6" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO DIABLO_ARL
-
-
-                                    REM TarokoLNL
-                                    FIND /I "CDD" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Taroko_LNL
-
-                                    FIND /I "CDC" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Taroko_LNL
-
-                                    FIND /I "CDB" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Taroko_LNL
-
-
-
-                                    rem TAROKO_ARL
-                                    FIND /I "CF4" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Taroko_ARL
-
-                                    FIND /I "CF3" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Taroko_ARL
-
-                                    FIND /I "CF5" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Taroko_ARL
-
-
-                                    rem TAROKO_RPL
-                                    FIND /I "CF6" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Taroko_RPL
-
-
-                                    REM GhostRider
-                                    FIND /I "CF0" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO GhostRider_UI
-
-                                    FIND /I "CF1" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO GhostRider_UI
-
-                                    REM SentryN14_2in1
-                                    FIND /I "CA7" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO SentryN14_2in1
-
-                                    REM JAVIS_LNL
-                                    FIND /I "D2D" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO JARVIS
-
-                                    FIND /I "D2E" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO JARVIS
-
-                                    FIND /I "D30" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO JARVIS
-
-                                    FIND /I "D31" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO JARVIS
-
-
-                                    REM Arwing_RPL_B2_AND_B3
-                                    FIND /I "D35" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO ArwingRPL
-
-
-                                    REM Arwing_ARL B2
-                                    FIND /I "D34" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO ArwingARL
-
-                                    rem ==== TAROKO AMD
-
-                                    REM =====CS HPT1======
-                                    FIND /I "D47" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
-                                    REM =====CS HPT2======
-                                    FIND /I "D48" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
-                                    REM =====CS KRK======
-                                    FIND /I "D49" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
-                                    REM =====2IN1 HPT1======
-                                    FIND /I "D4A" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
-                                    REM =====2IN1 HPT2======
-                                    FIND /I "D4B" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
-                                    REM =====2IN1 KRK======
-                                    FIND /I "D4C" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
-                                    REM =====CS Strix======
-                                    FIND /I "D61" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
-                                    REM =====2IN1 Strix======
-                                    FIND /I "D62" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
-                                    REM ========16CS HPT1====
-                                    FIND /I "D4D" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
-                                    REM ========16CS HPT2====
-                                    FIND /I "D4E" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
-                                    REM ========16CS KRK====
-                                    FIND /I "D4F" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
-                                    REM ========16CS Strix====
-                                    FIND /I "D65" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO Taroko_AMD
-
-                                    rem====Jade_AMD=====
-                                    FIND /I "D50" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO JadeAMD
-                                    FIND /I "D51" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO JadeAMD
-                                    FIND /I "D52" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO JadeAMD
-                                    FIND /I "D53" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO JadeAMD
-                                    FIND /I "D54" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO JadeAMD
-                                    FIND /I "D55" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO JadeAMD
-
-                                    rem====Jade_ARL=====
-                                    FIND /I "D63" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO JadeARL
-                                    FIND /I "D64" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO JadeARL
-
-                                    rem====Jade_SSDRPL=====
-                                    FIND /I "CFB" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO JadeRPL
-                                    FIND /I "CFC" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO JadeRPL
-
-                                    rem====Javis_amd=====
-                                    FIND /I "D6E" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO JarvisAMD
-                                    FIND /I "D6F" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO JarvisAMD
-                                    FIND /I "D70" SYSID.LOG
-                                    IF "%errorlevel%"=="0" GOTO JarvisAMD
-                                    goto fail
-
-                                    :JadeARL
-                                    SET MODELFULL=Jade_ARL
-                                    SET ModelPath=JadeARL_UI
-                                    goto PASS
-
-                                    :JadeRPL
-                                    SET MODELFULL=Jade_RPL
-                                    SET ModelPath=Jade1416_UI
-                                    goto PASS
-
-                                    :JadeAMD
-                                    SET MODELFULL=Jade_AMD
-                                    SET ModelPath=Jade_AMD_UI
-                                    goto PASS
-
-                                    :Taroko_AMD
-                                    SET MODELFULL=Taroko_AMD
-                                    SET ModelPath=Taroko_AMD_UI
-                                    goto PASS
-
-
-                                    :JARVIS
-                                    SET MODELFULL=JARVIS_LNL
-                                    SET ModelPath=Jarvis_UI
-                                    goto PASS
-
-
-
-                                    :SentryN14_2in1
-                                    SET MODELFULL=SentryN14_2in1
-                                    SET ModelPath=SentryNVRPL_UI
-                                    goto PASS
-
-
-                                    :DIABLO_MTL
-                                    SET MODELFULL=DIABLO_MTL
-                                    SET ModelPath=Diablo_MTL_UI
-                                    goto PASS
-
-                                    :DIABLO_ARL
-                                    SET MODELFULL=DIABLO_ARL
-                                    SET ModelPath=Diablo_ARL_UI
-                                    goto PASS
-
-                                    :Arches13MLK_MTL
-                                    SET MODELFULL=Arches13MLK_MTL
-                                    SET ModelPath=Arches13MLK_UI
-                                    GOTO PASS
-
-                                    :Arches13MLK_RPL
-                                    SET MODELFULL=Arches13MLK_RPL
-                                    SET ModelPath=Arches13MLK_UI
-                                    GOTO PASS
-
-                                    :Arches15MLK_MTL
-                                    SET MODELFULL=Arches15MLK_MTL
-                                    SET ModelPath=Arches15MLK_UI
-                                    GOTO PASS
-
-                                    :Arches15MLK_RPL
-                                    SET MODELFULL=Arches15MLK_RPL
-                                    SET ModelPath=Arches15MLK_UI
-                                    GOTO PASS
-
-                                    :QKL_MLK_MTL
-                                    SET MODELFULL=QKL_MLK_MTL
-                                    SET ModelPath=QKL_MLK_MTL_UI
-                                    GOTO PASS
-
-
-                                    :QKL_MLK_RPL
-                                    SET MODELFULL=QKL_MLK_RPL
-                                    SET ModelPath=QKL_MLK_RPL_UI
-                                    GOTO PASS
-
-                                    :Infinity18_E
-                                    SET MODELFULL=Infinity_MLK
-                                    SET ModelPath=Infinity_MLK_UI
-                                    GOTO PASS
-
-
-                                    :Infinity18_P
-                                    SET MODELFULL=Infinity_MLK
-                                    SET ModelPath=Infinity_MLK_UI
-                                    GOTO PASS
-
-                                    :ARCHES13
-                                    SET MODELFULL=Arches13
-                                    SET ModelPath=Arches13_UI
-                                    GOTO PASS
-
-                                    :OdinMLK
-                                    SET MODELFULL=OdinMLK
-                                    SET ModelPath=OdinMLK_UI
-                                    GOTO PASS
-
-                                    :Stradale_RPL
-                                    SET MODELFULL=Stradale_RPL
-                                    SET ModelPath=Stradale_RPL_UI
-                                    GOTO PASS
-
-                                    :Infinity_AMD
-                                    SET MODELFULL=Infinity_AMD
-                                    SET ModelPath=Infinity_AMD_UI
-                                    GOTO PASS
-
-                                    :Infinity_AMD_E4
-                                    SET MODELFULL=Infinity_AMD_E4
-                                    SET ModelPath=Infinity_AMD_UI
-                                    GOTO PASS
-
-                                    :Infinity_RPL
-                                    SET MODELFULL=Infinity_RPL
-                                    SET ModelPath=Infinity_RPL_UI
-                                    GOTO PASS
-
-                                    :Oasis13_RPL
-                                    SET MODELFULL=Oasis13_RPL
-                                    SET ModelPath=Oasis13_RPL_UI
-                                    GOTO PASS
-
-                                    :Oasis13_MTL
-                                    SET MODELFULL=Oasis13_MTL
-                                    SET ModelPath=Oasis13_MTL_UI
-                                    GOTO PASS
-
-                                    :Oasis13_MLK_RPL
-                                    SET MODELFULL=Oasis13_MLK_RPL
-                                    SET ModelPath=Oasis13MLK_RPL_UI
-                                    GOTO PASS
-
-                                    :QuakePlus
-                                    SET MODELFULL=QuakePlus
-                                    SET ModelPath=QuakePlus_UI
-                                    GOTO PASS
-
-                                    :Arches15
-                                    SET MODELFULL=Arches15
-                                    SET ModelPath=Arches15_UI
-                                    GOTO PASS
-
-                                    :QuakeL_RPL
-                                    SET MODELFULL=QuakeL_RPL
-                                    SET ModelPath=Quake_L_RPL_UI
-                                    GOTO PASS
-
-
-                                    :QuakeN1416
-                                    SET MODELFULL=QuakeN1416
-                                    SET ModelPath=QuakeN1416_UI
-                                    GOTO PASS
-
-
-
-                                    :Millennio_Wlan
-                                    SET MODELFULL=Millennio
-                                    SET ModelPath=Millennio_ADL_UI
-                                    GOTO PASS
-
-
-                                    :Millennio_5G
-                                    SET MODELFULL=Millennio
-                                    SET ModelPath=Millennio_ADL_UI
-                                    GOTO PASS
-
-                                    :BM15MLK
-                                    SET MODELFULL=BM15MLK
-                                    SET ModelPath=Broadmoor15MLK_UI
-                                    GOTO PASS
-
-                                    :BM15PMLK
-                                    SET MODELFULL=BM15PMLK
-                                    SET ModelPath=Broadmoor15MLK_UI
-                                    GOTO PASS
-
-                                    :OdinL13TGL
-                                    SET MODELFULL=ODINL13TGL
-                                    SET ModelPath=OdinL13_TGL_UI
-                                    GOTO PASS
-
-                                    :SP13MLK
-                                    SET MODELFULL=SP13MLK
-                                    SET ModelPath=SP13MLK_UI
-                                    GOTO PASS
-
-                                    :SP15MLKADL
-                                    SET MODELFULL=SP15MLKADL
-                                    SET ModelPath=SP15MLK_ADL_UI
-                                    GOTO PASS
-
-
-                                    :MoonKnight
-                                    SET MODELFULL=MoonKnight
-                                    SET ModelPath=MoonKnight_UI
-                                    GOTO PASS
-
-                                    :MoonKnightL
-                                    SET MODELFULL=MoonKnightL
-                                    SET ModelPath=MoonKnightL_UI
-                                    GOTO PASS
-
-
-
-                                    :PinehillsMLK
-                                    SET MODELFULL=PinehillsMLK
-                                    SET ModelPath=PinehillsMLK_UI
-                                    GOTO PASS
-
-
-                                    :Hellcat_TGL
-                                    SET MODELFULL=Hellcat_TGL
-                                    SET ModelPath=Hellcat_TGL_UI
-                                    GOTO PASS
-
-                                    :WatchmenTGL
-                                    SET MODELFULL=Watchmen_TGL
-                                    SET ModelPath=Watchmen_TGL_UI
-                                    GOTO PASS
-
-                                    :Broadmoor15
-                                    SET MODELFULL=Broadmoor15TGL
-                                    SET ModelPath=BroadMoor15_UI
-                                    GOTO PASS
-
-                                    :CyborgLICL
-                                    SET MODELFULL=CyborgLICL
-                                    SET ModelPath=Cyborg_L_ICL_UI
-                                    GOTO PASS
-
-
-                                    :CyborgLTGL
-                                    SET MODELFULL=CyborgLTGL
-                                    SET ModelPath=Cyborg_L_TGL_UI
-                                    GOTO PASS
-
-
-                                    :CyborgAMD
-                                    SET MODELFULL=Cyborg_AMD
-                                    SET ModelPath=CyborgAMD_UI
-                                    GOTO PASS
-
-                                    :CyborgNVTGL
-                                    SET MODELFULL=Cyborg_NVTGL
-                                    SET ModelPath=CyborgNVTGL_UI
-                                    GOTO PASS
-
-
-                                    :SP15TGL
-                                    SET MODELFULL=SP15TGL
-                                    SET ModelPath=SouthPeak15_UI
-                                    GOTO PASS
-
-                                    :SP15CML
-                                    SET MODELFULL=SP15CML
-                                    SET ModelPath=SouthPeak15CML_UI
-                                    GOTO PASS
-
-
-                                    :SP13TGL
-                                    SET MODELFULL=SP13TGL
-                                    SET ModelPath=SouthPeak13_UI
-                                    GOTO PASS
-
-                                    :Watchmen_AMD
-                                    SET MODELFULL=Watchmen_AMD
-                                    SET ModelPath=Watchmen_AMD_UI
-                                    GOTO PASS
-
-                                    :ODIN_AMD
-                                    SET MODELFULL=ODIN_AMD
-                                    SET ModelPath=ODIN_AMD_UI
-                                    GOTO PASS
-
-                                    :Antman_AMD
-                                    SET MODELFULL=Antman_AMD
-                                    SET ModelPath=Antman_AMD_UI
-                                    GOTO PASS
-
-
-                                    :Ant16ADL
-                                    SET MODELFULL=Ant16ADL
-                                    SET ModelPath=Antman_ADL_UI
-                                    GOTO PASS
-
-                                    :Ant14ADL
-                                    SET MODELFULL=Ant14ADL
-                                    SET ModelPath=Antman_ADL_UI
-                                    GOTO PASS
-
-
-                                    :ODIN_H_RTX
-                                    SET MODELFULL=ODIN_H_RTX
-                                    SET ModelPath=Odin_H_UI
-                                    GOTO PASS
-
-                                    :ODIN_H
-                                    SET MODELFULL=ODIN_H
-                                    SET ModelPath=Odin_H_UI
-                                    GOTO PASS
-
-
-                                    :Odin_CR
-                                    SET MODELFULL=ODIN_CR
-                                    SET ModelPath=OdinNV1416_CR_UI
-                                    GOTO PASS
-
-                                    :Quake_ADL
-                                    SET MODELFULL=Quake_ADL
-                                    SET ModelPath=Quake_L_ADL_UI
-                                    GOTO PASS
-
-                                    :PolarisN1416
-                                    SET MODELFULL=PolarisN1416
-                                    SET ModelPath=PolarisN1416_UI
-                                    GOTO PASS
-
-
-                                    :Taroko_LNL
-                                    SET MODELFULL=Taroko_LNL
-                                    SET ModelPath=Taroko_LNL_UI
-                                    GOTO PASS
-
-                                    :Taroko_ARL
-                                    SET MODELFULL=Taroko_ARL
-                                    SET ModelPath=Taroko_ARL_UI
-                                    GOTO PASS
-
-                                    :Taroko_RPL
-                                    SET MODELFULL=Taroko_RPL
-                                    SET ModelPath=Taroko_RPL_UI
-                                    GOTO PASS
-
-                                    :Scorpio_MTL
-                                    SET MODELFULL=Scorpio_MTL
-                                    SET ModelPath=Scorpio_MTL_UI
-                                    GOTO PASS
-
-                                    :GhostRider_UI
-
-                                    SET MODELFULL=GhostRider
-                                    SET ModelPath=GhostRider_UI
-
-                                    if @%MODELFAMILY%==@4PD0VH01A001 (
-                                    SET MODELFULL=GhostRiderDIS
-                                    SET ModelPath=GhostRider_UI)
-
-                                    if @%MODELFAMILY%==@4PD0VK01A001 (
-                                    SET MODELFULL=GhostRiderDIS
-                                    SET ModelPath=GhostRider_UI)
-                                    GOTO PASS
-
-                                    :ArwingRPL
-                                    REM ====ArWing_RPL_MB3=====
-
-                                    SET MODELFULL=AW_ARWING_H_MB3
-                                    SET ModelPath=Arwing_UI
-
-                                    REM ====ArWing_RPL_MB2=====
-
-                                    IF @%MODELFAMILY%==@4PD0V9010001 (
-                                    SET MODELFULL=AW_ARWING_RPL_B2
-                                    SET ModelPath=Arwing_UI)
-                                    GOTO PASS
-
-                                    :ArwingARL
-                                    SET MODELFULL=AW_ARWING_ARL_B2
-                                    SET ModelPath=Arwing_UI
-                                    GOTO PASS
-
-
-                                    :JarvisAMD
-                                    SET MODELFULL=Jarvis_AMD
-                                    SET ModelPath=JarvisAMD_UI
-                                    GOTO PASS
-                                    :FAIL
-                                    cls
-                                    color 4E
-                                    ECHO MODEL NG
-                                    ECHO Please check model !
-                                    ECHO Please check model !
-                                    ECHO Please check model !
-                                    PAUSE
-                                    GOTO START
-                                    exit /b 1
-
-
-                                    :PASS
-                                    ECHO MODELFULL=%MODELFULL%
-                                    ECHO ModelPath=%ModelPath%
-                                    DEL SYSID.LOG
-                                    exit /b 0
 
                                         </pre>
                                 </div>
@@ -1076,22 +1256,25 @@
                                     <img class="img-max-w-900 img-medium" src="./img/preload_SLOT_SSD_2.png" alt="">
                                     <br>
                                     <h2>6. Windows Device Error: Device Problem Code 43: UCM-UCSI ACPI Device</h2>
-                                        <p>=> vào F12 </p>
-                                        <p>=> select windowinsnls</p>
-                                        <p>waitting ... cmd pause C:\dell\fist</p>
-                                        <p>command: desktop.bat </p>
+                                    <p>=> vào F12 </p>
+                                    <p>=> select windowinsnls</p>
+                                    <p>waitting ... cmd pause C:\dell\fist</p>
+                                    <p>command: desktop.bat </p>
                                     <br>
                                     <h2>7.Goto Window then passTV, not connetion wifi</h2>
-                                    <img class="img-max-w-900 img-medium" src="./img/gotoWindow_notconetionwifi.jpg" alt="">
-                                        <br>
+                                    <img class="img-max-w-900 img-medium" src="./img/gotoWindow_notconetionwifi.jpg"
+                                        alt="">
+                                    <br>
                                     <br>
                                     <h2>8.test:Intel BE201 test failed after reboot and retry => replace wlan</h2>
                                     <img class="img-max-w-900 img-medium" src="./img/preload_wlanbe201.png" alt="">
-                                        <br>
                                     <br>
-                                    <h2>9. Temp workaround for Intel 9260/9560. Unable to capture MAC address: giống lỗi 8 nhưng thay wlan 2 lần => thay MB </h2>
-                                    <img class="img-max-w-900 img-medium" src="./img/preload_ Intel_9260_9560_wlanbe201.png" alt="">
-                                        <br>
+                                    <br>
+                                    <h2>9. Temp workaround for Intel 9260/9560. Unable to capture MAC address: giống lỗi
+                                        8 nhưng thay wlan 2 lần => thay MB </h2>
+                                    <img class="img-max-w-900 img-medium"
+                                        src="./img/preload_ Intel_9260_9560_wlanbe201.png" alt="">
+                                    <br>
                                 </div>
                             </div>
                             <div class="atd__content atd-15">
@@ -1134,7 +1317,7 @@
                                 <img src="./img/remote_WDL.png" alt="">
                                 <img src="./img/remote_WDL_new.png" alt="">
                             </div>
-                           
+
                             <div class="col l-2-4 m-4 c-6 atd__content atd-9">
                                 <!-- Product-item -->
 
@@ -1299,6 +1482,9 @@
                                     4PD0V9010001=ArWing_RPL_B2
                                     4PD0V901A001=ArWing_ARL_B2
 
+                                    4PD0XE01A001=ArWing_MLK
+                                    4PD0XE010001=ArWing_MLK
+
                                     4PD0VK01A001=GR_1416D_ARL_CS
                                     4PD0VH01A001=GR_1416D_ARL_CS
                                     4PD0VK010001=GR_1416D_ARL_CS
@@ -1313,6 +1499,13 @@
                                     4PD0WS01C001=GR_1416AMD
                                     4PD0WS01B001=GR_1416AMD
                                     4PD0WS01A001=GR_1416AMD
+                                    4PD0WT01F001=GR_1416AMD
+                                    4PD0WT01E001=GR_1416AMD
+                                    4PD0WS01K001=GR_1416AMD
+                                    4PD0WS01N001=GR_1416AMD
+                                    4PD0WS01J001=GR_1416AMD
+                                    4PD0WS01L001=GR_1416AMD
+
 
                                     4PD0WJ01N001=Jade_ARL_USH
                                     4PD0WJ01L001=Jade_ARL_USH
@@ -1321,21 +1514,36 @@
                                     4PD0WJ01H001=Jade_ARL_USH
                                     4PD0WJ01G001=Jade_ARL_USH
 
+                                    4PD0WX01J001=Sentry_MLK
+                                    4PD0WX01L001=Sentry_MLK
+                                    4PD0WX01G001=Sentry_MLK
+                                    4PD0WX01H001=Sentry_MLK
+                                    4PD0WX01K001=Sentry_MLK
+                                    4PD0WX01N001=Sentry_MLK
+                                    4PD0WX01C001=Sentry_MLK
+                                    4PD0WX01B001=Sentry_MLK
+                                    4PD0WX01F001=Sentry_MLK
+                                    4PD0WX01E001=Sentry_MLK
                                     4PD0WX01A001=Sentry_MLK
                                     4PD0WX010001=Sentry_MLK
-                                    4PD0WX01B001=Sentry_MLK_KRK
 
-                                    4PD0WX01N001=Sentry_MLK_KRK_SE
-                                    4PD0WX01K001=Sentry_MLK_KRK_SE
-                                    4PD0WX01L001=Sentry_MLK_KRK_SE
-                                    4PD0WX01J001=Sentry_MLK_KRK_SE
-                                    4PD0WX01H001=Sentry_MLK_KRK_SE
-                                    4PD0WX01G001=Sentry_MLK_KRK_SE
+                                    4PD0UQ01G001=SentryRPL_NBN
+                                    4PD0UQ01H001=SentryRPL_NBN
+                                    4PD0UQ01K001=SentryRPL_NBN_SE
+                                    4PD0UQ01J001=SentryRPL_NBN_SE
 
-                                    4PD0UQ01G001=SentryNVRPL_R
-                                    4PD0UQ01H001=SentryNVRPL_R
-                                    4PD0UQ01K001=SentryNVRPL_R_SE
-                                    4PD0UQ01J001=SentryNVRPL_R_SE
+                                    4PD0XQ010001=HP_PTL
+                                    4PD0XQ01A001=HP_PTL
+                                    4PD0WR010001=HP_PTL
+                                    4PD0WR01A001=HP_PTL
+
+                                    4PD0Y801A001=Sentry_ARL
+                                    4PD0Y801C001=Sentry_ARL
+
+                                    4PD0XR010001=GhostRider14MLK
+                                    4PD0XR01A001=GhostRider14MLK
+                                    4PD0XW010001=GhostRider16MLK
+                                    4PD0XW01A001=GhostRider16MLK
 
                                     CR=CR
                                     CR1=CR1
@@ -1355,6 +1563,24 @@
                                     CR15=CR15
                                     CR16=CR16
                                     CR17=CR17
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                                 </div>
                             </div>
                             <div class="col l-4 m-4 c-6 atd__content atd-9">
@@ -1612,8 +1838,7 @@
                             <div class="col l-2-4 m-4 c-6 atd__content atd-22">
                                 <!-- Product-item -->
                                 <div class="product-item">
-                                    <a href="http://10.69.230.54/service.asmx"
-                                        target="_blank">
+                                    <a href="http://10.69.230.54/service.asmx" target="_blank">
                                         <div class="product-item__img"
                                             style="background-image: url(img/Service_Web_TE.png);">
                                         </div>
@@ -1638,8 +1863,7 @@
                                 <div class="product-item">
                                     <a href="https://powerbi-wvn.wistron.com/reports/powerbi/WVN/KV1000/Public/Build_13H%20%E9%A0%90%E8%AD%A6%E7%9C%8B%E6%9D%BF"
                                         target="_blank">
-                                        <div class="product-item__img"
-                                            style="background-image: url(img/FA_delay.png);">
+                                        <div class="product-item__img" style="background-image: url(img/FA_delay.png);">
                                         </div>
                                         <h4 class="product-item__name">FA Delay</h4>
                                     </a>
