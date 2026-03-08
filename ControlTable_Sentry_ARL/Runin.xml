@@ -1,0 +1,749 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<TESTINFO>
+<MODEL>SentryARL_Runin</MODEL>
+<STATION ID="TS"> 
+ <THREAD NUM="1">
+	<TESTITEM>
+       <ITEM_NAME>Ngắt_kết_nối_WiFi_断开无线网</ITEM_NAME>           
+       <BATCH_FILE>D:\FA_PRO\TSLinkAP\TSLeaveAP.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\LeaveAP.jpg</PICTURE_FILE>
+	</TESTITEM>
+		
+	<TESTITEM>
+	   <ITEM_NAME>Kết_nối_mạng_连接网络</ITEM_NAME>
+	   <BATCH_FILE>D:\BURNIN\Link\Link_net.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Link_net.jpg</PICTURE_FILE>
+	</TESTITEM> 
+
+	<TESTITEM>
+	   <ITEM_NAME>Cập_nhật_chương_trình_kiểm_tra_Runin_Runin更新测试程式</ITEM_NAME>
+	   <BATCH_FILE>D:\BURNIN\Update\TO_Update.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\TO_Update.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+       <ITEM_NAME>ChecksumTO1</ITEM_NAME>           
+       <BATCH_FILE>D:\FA_PRO\BaseXML\TS_Update\checksumTO.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\TS_Update.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+       <ITEM_NAME>ChangeTimeZone</ITEM_NAME>           
+       <BATCH_FILE>D:\FA_PRO\TimeZone\ChangeTimeZone.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\LinkAP.jpg</PICTURE_FILE>
+	</TESTITEM>	
+	
+	<TESTITEM>
+       <ITEM_NAME>ShowInfo</ITEM_NAME>           
+       <BATCH_FILE>D:\BURNIN\ShowInfo\ShowInfo.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\TS_Update.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Xác_thực_an_toàn_1_Xác_thực_an_toàn_1</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\SAFE\SAFE64.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Safe.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>Mở_chế_độ_mặc_định_1_Mở_chế_độ_mặc_định_1</ITEM_NAME>           	
+	   <BATCH_FILE>D:\FA_PRO\Setmode\Setmode.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Setmode.jpg</PICTURE_FILE>
+	</TESTITEM>
+  
+
+    
+	<TESTITEM>
+	   <ITEM_NAME>ADTCheck</ITEM_NAME>
+	   <BATCH_FILE>D:\FA_PRO\ADTCheck\ADTCheck.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\FA_PRO\ADTCheck\ADTCheck.jpg</PICTURE_FILE>
+	</TESTITEM>
+    
+	<TESTITEM>
+	   <ITEM_NAME>DEL_BIOS_IQ</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\BIOS_IQ\Del_BIOS_IQ.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\EWS.jpg</PICTURE_FILE>
+	</TESTITEM>	
+
+	<TESTITEM>
+	  <ITEM_NAME>UpAutoTestLog</ITEM_NAME>         
+	  <BATCH_FILE>D:\BURNIN\UploadLOG\UPAUTOTESTLOG.bat</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\Link_net.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Cho_phép_thiết_bị_Bluetooth_tìm_thấy_máy_tính_này</ITEM_NAME>        
+	   <BATCH_FILE>D:\BURNIN\CheckBT\EnableBT.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Bluetooth.jpg</PICTURE_FILE>
+	</TESTITEM>	
+
+	<TESTITEM>
+	   <ITEM_NAME>Tìm_kiếm_thiết_bị_Bluetooth_gần_đó</ITEM_NAME>        
+	   <BATCH_FILE>D:\BURNIN\CheckBT\BTSearchTest.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Bluetooth.jpg</PICTURE_FILE>
+	</TESTITEM>	
+
+	<TESTITEM>
+	  <ITEM_NAME>Kiểm_tra_TPGHOST测试</ITEM_NAME>         
+	  <BATCH_FILE>D:\BURNIN\TPGH\TPGH_test.bat</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\Link_net.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>UPLOADLOCATION_ONE</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\NEWEWS\NEWEWS.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\EWS.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>Kiểm_tra_thông_tin_trạm_TS_检查TS站别信息</ITEM_NAME>         
+	   <BATCH_FILE>D:\FA_PRO\BaseXML\GetSfcsInfo\CheckTS.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\STAGE.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Chuẩn_bị_thông_tin_trạm_TS_准备TS过站信息</ITEM_NAME>         
+	   <BATCH_FILE>D:\FA_PRO\SFCS_XX\SFCS_TS.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\SFCS_TS.jpg</PICTURE_FILE>
+	</TESTITEM> 
+   </THREAD>
+</STATION>
+  <STATION ID="BASETO"> 
+	<THREAD NUM="1">
+	<TESTITEM>
+	   <ITEM_NAME>Kiểm_tra_thông_tin_trạm_TO_检查TO站别信息</ITEM_NAME>         
+	   <BATCH_FILE>D:\FA_PRO\BaseXML\GetSfcsInfo\CheckTO.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\STAGE.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>Cập_nhật_chương_trình_kiểm_tra_Runin_Runin更新测试程式</ITEM_NAME>
+	   <BATCH_FILE>D:\BURNIN\Update\TO_Update.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\TO_Update.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+     <TESTITEM>
+	   <ITEM_NAME>RUNIN_MTDL_START</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\NEWMTDL\RUNIN_MTDL_START\RUNIN_MTDL_START.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Write_SVC_PPID.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>Lấy_thông_tin_SFCS_获取SFCS信息</ITEM_NAME>           
+	   <BATCH_FILE>D:\FA_PRO\BaseXML\GetSfcsInfo\GetTOInfo.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\GetSfcsInfo.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>SSDPPIDCheck</ITEM_NAME>           
+	   <BATCH_FILE>D:\BURNIN\SSDPPIDCheck\SSDPPIDCheck.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\GetSfcsInfo.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Tải_lên_thông_tin_EWS_EWS信息上传</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\EWS\EWSLOG.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\EWS.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>Tải_lên_WlanMAC_上传WlanMAC</ITEM_NAME>
+	   <BATCH_FILE>D:\BURNIN\UPWLAN\UPWLANMAC.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\WLANMAC.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Xác_thực_an_toàn_Safe认证</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\SAFE\SAFE64.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Safe.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>Mở_chế_độ_mặc_định_开工厂模式</ITEM_NAME>           	
+	   <BATCH_FILE>D:\FA_PRO\Setmode\Setmode.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Setmode.jpg</PICTURE_FILE>
+	</TESTITEM>
+  
+		<TESTITEM>
+	  <ITEM_NAME>Kiểm_tra_nguồn_điện_检查电源</ITEM_NAME>         
+	  <BATCH_FILE>D:\FA_PRO\Charge\PSIDTest.py</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\PSIDTest.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	  <ITEM_NAME>Kiểm_tra_sạc充电测试</ITEM_NAME>         
+	  <BATCH_FILE>D:\FA_PRO\Charge\ChargeTest.BAT</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\Charge.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>charge_test</ITEM_NAME>
+	   <BATCH_FILE>D:\FA_PRO\Charge\Charge.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Charge.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Kiểm_tra_thông_tin_cáp_Cable信息检查</ITEM_NAME>         
+	   <BATCH_FILE>D:\FA_PRO\CableCheck\CheckCables.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\defo.jpg</PICTURE_FILE>
+	</TESTITEM>
+		
+	<TESTITEM>
+	   <ITEM_NAME>Check_WSMT</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURnin\UpdateBIOS\Check_WSMT.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Update_BIOS.jpg</PICTURE_FILE>
+ 	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Cập_nhật_BIOS_更新BIOS</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURnin\UpdateBIOS\Update_BIOS.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Update_BIOS.jpg</PICTURE_FILE>
+ 	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>Check_WSMT1</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURnin\UpdateBIOS\Check_WSMT.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Update_BIOS.jpg</PICTURE_FILE>
+ 	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>PPIDCHECK</ITEM_NAME>         
+	   <BATCH_FILE>D:\FA_PRO\Write_SVC_PPID\Write_SVC_PPID.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Write_SVC_PPID.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+
+	<TESTITEM>
+	   <ITEM_NAME>CheckBIOSWIFIDriverpy</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURnin\UpdateBIOS\CheckBIOSmanifest.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Update_BIOS.jpg</PICTURE_FILE>
+ 	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Check_WSMT2</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURnin\UpdateBIOS\Check_WSMT.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Update_BIOS.jpg</PICTURE_FILE>
+ 	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Safe</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\SAFE\SAFE64.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Safe.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>SetMFG</ITEM_NAME>           	
+	   <BATCH_FILE>D:\FA_PRO\Setmode\Setmode.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Setmode.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	
+	<TESTITEM>
+	   <ITEM_NAME>BatteryLimit</ITEM_NAME>           	
+	  <BATCH_FILE>D:\FA_PRO\Write_SVC_PPID\BatteryLimit.py</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\Defo.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>PPIDCHECK_PPID检查</ITEM_NAME>         
+	   <BATCH_FILE>D:\FA_PRO\Write_SVC_PPID\Write_SVC_PPID.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Write_SVC_PPID.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>WB</ITEM_NAME>           	
+	  <BATCH_FILE>D:\BURNIN\CoolBoot\WB.BAT</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\WarmBoot.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>ENSAGV</ITEM_NAME>          
+	   <BATCH_FILE>D:\FA_PRO\Write_SVC_PPID\EnableSagv.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Defo.jpg</PICTURE_FILE>
+	</TESTITEM> 
+	
+	<TESTITEM>
+	   <ITEM_NAME>SYNCTIME</ITEM_NAME>
+	   <BATCH_FILE>D:\BURNIN\Link\Link_net.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Link_net.jpg</PICTURE_FILE>
+	</TESTITEM>
+		
+	<TESTITEM>
+	   <ITEM_NAME>SafeSet</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\SAFE\SAFE64.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Safe.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>SetMFG_设置工厂模式</ITEM_NAME>           	
+	   <BATCH_FILE>D:\FA_PRO\Setmode\Setmode.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Setmode.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Kiểm_tra_IDLE测试</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\S3\IDLE.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Smart_S3.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Khởi_động_lại_máy_重启机台</ITEM_NAME>          
+	   <BATCH_FILE>D:\FA_PRO\BIOSRBT.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Restart.jpg</PICTURE_FILE>
+	</TESTITEM> 
+	
+	<TESTITEM>
+	  <ITEM_NAME>Hoàn_tất_chuẩn_bị_cơ_bản_Base准备完成</ITEM_NAME>           
+	  <BATCH_FILE>\FA_PRO\BaseXML\ReloadXML\BaseEnd.bat</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\Defo.jpg</PICTURE_FILE>
+	</TESTITEM>	
+  </THREAD> 
+ </STATION>
+<STATION ID="TO" >
+
+ <THREAD NUM="1">
+	<TESTITEM>
+	   <ITEM_NAME>Safe</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\SAFE\SAFE64.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Safe.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	  <ITEM_NAME>Kiểm_tra_GCFEQU_GCFEQU测试</ITEM_NAME>         
+	  <BATCH_FILE>D:\BURNIN\GCFEQU\GCF_EQU.py</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\GCF_EQU.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	  <ITEM_NAME>Kiểm_tra_GCFEQU_CPU_MHz测试</ITEM_NAME>         
+	  <BATCH_FILE>D:\BURNIN\GCFEQU\GCF_EQUCPUMHz\GCF_CPUMHz.BAT</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\GCF_EQU.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	  <ITEM_NAME>Kiểm_tra_GCFEQU_DimmSpeed测试</ITEM_NAME>         
+	  <BATCH_FILE>D:\BURNIN\GCFEQU\GCF_EQUDimmSpeed\GCF_DimmSpeed.py</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\GCF_EQU.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	  <ITEM_NAME>Kiểm_tra_GCFEQU_GPU_Nvidia测试</ITEM_NAME>         
+	  <BATCH_FILE>D:\BURNIN\GCFEQU\GCF_EQUGPU\GCF_GPU_Nvidia.py</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\GCF_EQU.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	  <ITEM_NAME>Kiểm_tra_GCFEQU_Battery测试</ITEM_NAME>         
+	  <BATCH_FILE>D:\BURNIN\GCFEQU\GCF_EQUBattery\GCF_Battery.py</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\GCF_EQU.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	  <ITEM_NAME>Kiểm_tra_GCFEQU_LCD测试</ITEM_NAME>         
+	  <BATCH_FILE>D:\BURNIN\GCFEQU\GCF_EQULCD\GCF_LCD.py</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\GCF_EQU.jpg</PICTURE_FILE>
+	</TESTITEM>	
+	
+	<TESTITEM>
+	  <ITEM_NAME>Kiểm_tra_GCFEQU_WlanType测试</ITEM_NAME>         
+	  <BATCH_FILE>D:\BURNIN\GCFEQU\GCF_EQUWlanType\GCF_WlanType.bat</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\GCF_EQU.jpg</PICTURE_FILE>
+	</TESTITEM>	
+	
+	<TESTITEM>
+	  <ITEM_NAME>Kiểm_tra_GCFEQU_Camera测试</ITEM_NAME>         
+	  <BATCH_FILE>D:\BURNIN\GCFEQU\GCF_EQUCamera\GCF_Camera.bat</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\GCF_EQU.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	  <ITEM_NAME>Kiểm_tra_GCFEQU_HDDSpeed测试</ITEM_NAME>         
+	  <BATCH_FILE>D:\BURNIN\GCFEQU\GCF_EQUHDDSpeed\GCF_HDDSpeed.bat</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\GCF_EQU.jpg</PICTURE_FILE>
+	</TESTITEM>
+		
+	<TESTITEM>
+	  <ITEM_NAME>Kiểm_tra_CheckDual_DIMMSize测试</ITEM_NAME>         
+	  <BATCH_FILE>D:\BURNIN\CheckDualDIMMSize\CheckDualDIMMSize.py</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\Smart_Memory.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+       <ITEM_NAME>Kiểm_tra_MoreHWCheck测试</ITEM_NAME>           
+       <BATCH_FILE>D:\BURNIN\MoreHWCheck\MoreHWCheck.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Defo.jpg</PICTURE_FILE>
+	</TESTITEM>	
+	
+    <TESTITEM>
+	   <ITEM_NAME>SetSafe</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\SAFE\SAFE64.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Safe.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Kiểm_tra_Quạt_风扇测试</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURnin\FanTest\FanTest.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\FanTest.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>Tải_thông_tin_cáp_lên_上传BI信息到SFCS</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\GetBIData\Smart_UPBIDATA.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Defo.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Cập_nhật_BIOS_更新BIOS</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURnin\UpdateBIOS\Update_BIOS.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Update_BIOS.jpg</PICTURE_FILE>
+ 	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>SafeSET1</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\SAFE\SAFE64.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Safe.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>SetMFG</ITEM_NAME>           	
+	   <BATCH_FILE>D:\FA_PRO\Setmode\Setmode.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Setmode.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Kiểm_tra_PPID检查</ITEM_NAME>         
+	   <BATCH_FILE>D:\FA_PRO\Write_SVC_PPID\Write_SVC_PPID.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Write_SVC_PPID.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	
+	<TESTITEM>
+	   <ITEM_NAME>Furmark</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\FurMark\Smart_Furmark.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Smart_Furmark.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>HWvendor</ITEM_NAME>
+	   <BATCH_FILE>D:\BURNIN\HWvendor\HWVendor.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Link_net.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>SYNCTIME_连接网络</ITEM_NAME>
+	   <BATCH_FILE>D:\BURNIN\Link\Link_net.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Link_net.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Đang_chạy_chương_trình_cập_nhật_Runin更新程式</ITEM_NAME>
+	   <BATCH_FILE>D:\BURNIN\Update\TO_Update.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\TO_Update.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Cập_nhật_更新BIOS1</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURnin\UpdateBIOS\Flash_BIOS.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Update_BIOS.jpg</PICTURE_FILE>
+ 	</TESTITEM>
+	<TESTITEM>
+	   <ITEM_NAME>SYNCTIME_连接网络1</ITEM_NAME>
+	   <BATCH_FILE>D:\BURNIN\Link\Link_net.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Link_net.jpg</PICTURE_FILE>
+	</TESTITEM> 
+	<TESTITEM>
+	   <ITEM_NAME>SafeSET2</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\SAFE\SAFE64.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Safe.jpg</PICTURE_FILE>
+	</TESTITEM>
+	<TESTITEM>
+	   <ITEM_NAME>SetMFG2</ITEM_NAME>           	
+	   <BATCH_FILE>D:\FA_PRO\Setmode\Setmode.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Setmode.jpg</PICTURE_FILE>
+	</TESTITEM>
+	<TESTITEM>
+	   <ITEM_NAME>Kiểm_tra_PPID检查2</ITEM_NAME>         
+	   <BATCH_FILE>D:\FA_PRO\Write_SVC_PPID\Write_SVC_PPID.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Write_SVC_PPID.jpg</PICTURE_FILE>
+	</TESTITEM>
+	<TESTITEM>
+	   <ITEM_NAME>Kiểm_tra_HDD测试</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\HDD\Smart_HDD.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Smart_HDD.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>	
+	   <ITEM_NAME>Kiểm_tra_DIMM测试</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\Memory\Smart_Memory.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Smart_Memory.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>UPLOADLOCATION_TWO</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\NEWEWS\NEWEWS_TO.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\EWS.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>WaititemTO2测试完成</ITEM_NAME>        
+	   <BATCH_FILE>D:\TEST_UI\log\TOThread2End.log</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Defo.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>Kiểm_tra_S3_Kiểm_tra_S3</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\S3\Smart_S3.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Smart_S3.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Kiểm_tra_S4_Kiểm_tra_S4</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\S4\Smart_S4.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Smart_S4.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>WARMBOOT</ITEM_NAME>          
+	   <BATCH_FILE>D:\BURNIN\CoolBoot\WB.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\WarmBoot.jpg</PICTURE_FILE>
+	</TESTITEM> 
+	
+	<TESTITEM>
+	   <ITEM_NAME>Khởi_động_nguội_冷启动</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\CoolBoot\Smart_CoolBoot.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Smart_CoolBoot.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>Reboot</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\SetModelName\CheckReBoot.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Restart.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>Kiểm_tra_ModelName_检查ModelName</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURnin\SetModelName\CheckModelname.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\CheckModelname.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>CloseManuf</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\CloseManuf\CloseManuf.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\CloseManuf.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>CheckBIOS</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURnin\UpdateBIOS\Check_Bios.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Update_BIOS.jpg</PICTURE_FILE>
+ 	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Đang_chạy_chương_trình_cập_nhật_2_Runin更新程式2</ITEM_NAME>
+	   <BATCH_FILE>D:\BURNIN\Update\TO_Update.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\TO_Update.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>SafeSET</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\SAFE\SAFE64.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Safe.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+     <TESTITEM>
+	   <ITEM_NAME>Diswaves</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\Audiodriver\DisableWaves.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\RightAud.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>NEW_AcousticMICTEST_MIC</ITEM_NAME>         
+	   <BATCH_FILE>D:\FA_PRO\AcousticMICTEST\AcousticMICTEST_MIC.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\RightAud.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>NEW_AcousticMICTEST_SPK</ITEM_NAME>         
+	   <BATCH_FILE>D:\FA_PRO\AcousticMICTEST\AcousticMICTEST_SPK.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\RightAud.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>WRosaFan</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\WRosaFanNEW\wRosaFanTest.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\FanTest.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	  <ITEM_NAME>RMOVEDPTF</ITEM_NAME>         
+	  <BATCH_FILE>D:\BURNIN\DPTF\RMDPTF.py</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\Defo.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>Kiểm_tra_nhiệt_散热测试</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\Thermal\Smart_Thermal.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Thermal.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Kiểm_tra_thông_tin_cáp_Cable信息检查</ITEM_NAME>         
+	   <BATCH_FILE>D:\FA_PRO\CableCheck\CheckCables.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\defo.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>CheckCamera</ITEM_NAME>        
+	   <BATCH_FILE>D:\FA_PRO\FaceCamera\CheckCamera.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\FaceCamera.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>CheckRTCReset</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\Meinfo\CheckAutoRtcResetFeature.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\CloseManuf.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	  <ITEM_NAME>Kiểm_tra_Check_WLANMAC測試</ITEM_NAME> 
+	  <BATCH_FILE>D:\BURNIN\UPWLAN\Check_BTMAC.BAT</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\WlanTest.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Kết_nối_mạng_hoàn_tất_连接网络complete</ITEM_NAME>
+	   <BATCH_FILE>D:\BURNIN\Link\Link_net.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Link_net.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>CheckWlanMAC</ITEM_NAME>
+	   <BATCH_FILE>D:\BURNIN\UPWLAN\Check_WLANMAC.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Defo.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	  <ITEM_NAME>FinalCheck</ITEM_NAME>         
+	  <BATCH_FILE>D:\BURNIN\L10FinalCheck\L10FinalCheck.bat</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\Defo.jpg</PICTURE_FILE>
+	</TESTITEM>	
+
+	<TESTITEM>
+	  <ITEM_NAME>UpTestLOG</ITEM_NAME>         
+	  <BATCH_FILE>D:\BURNIN\UpTestLog\UpTestLog.py</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\Link_net.jpg</PICTURE_FILE>
+	</TESTITEM>	
+
+	
+	<TESTITEM>
+	   <ITEM_NAME>Chuẩn_bị_thông_tin_trạm_TO_准备TO过站信息</ITEM_NAME>        
+	   <BATCH_FILE>D:\FA_PRO\SFCS_XX\SFCS_TO.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\SFCS_TO.jpg</PICTURE_FILE>
+	</TESTITEM>
+  </THREAD> 
+
+<THREAD NUM="2">
+	
+	<TESTITEM>
+	   <ITEM_NAME>InstallStash</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\UpSWlog\InstallStash.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\EWS.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>Kiểm_tra_MEManuf_检查MEManuf</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\MEmanuf\CheckMEmanuf.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\MEmanuf\MEMANUF.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>Kiểm_tra_Bluetooth_蓝牙测试</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURnin\CheckBT\CheckBT.py</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\CheckBT.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	  <ITEM_NAME>TPMTEST</ITEM_NAME> 
+	  <BATCH_FILE>D:\BURNIN\TPMTest\TPMTest.py</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\TPM.jpg</PICTURE_FILE>
+	</TESTITEM>	
+</THREAD>
+ </STATION>
+
+<STATION ID="TV" >
+    <THREAD NUM="1">
+	<TESTITEM>
+	  <ITEM_NAME>Kiểm_tra_thông_tin_đài_truyền_hình_检查TV站别信息</ITEM_NAME>         
+	  <BATCH_FILE>D:\FA_PRO\BaseXML\GetSfcsInfo\CheckTV.py</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\STAGE.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+    <TESTITEM>
+	   <ITEM_NAME>RUNIN_MTDL_END</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\NEWMTDL\RUNIN_MTDL_START\RUNIN_MTDL_END.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Write_SVC_PPID.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>Get_BIOS_IQ</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\BIOS_IQ\Get_BIOS_IQ.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\EWS.jpg</PICTURE_FILE>
+	</TESTITEM>	
+	
+    <TESTITEM>
+	   <ITEM_NAME>UP_MTDL</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\NEWMTDL\UP_MTDL.bat</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Write_SVC_PPID.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	  <ITEM_NAME>UploadLOG</ITEM_NAME>         
+	  <BATCH_FILE>D:\BURNIN\\UploadLOG\UPTESTLOG.bat</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\Defo.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	   <ITEM_NAME>UpSWlog</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\UpSWlog\UpSWlog.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\EWS.jpg</PICTURE_FILE>
+	</TESTITEM>	
+
+	<TESTITEM>
+	  <ITEM_NAME>DebugLOG</ITEM_NAME>         
+	  <BATCH_FILE>D:\BURNIN\DebugLOG\DebugLOG.BAT</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\Link_net.jpg</PICTURE_FILE>
+	</TESTITEM>	
+	
+	<TESTITEM>
+	  <ITEM_NAME>Tải_xuống_tệp_WIM_下载WIM文件</ITEM_NAME>         
+	  <BATCH_FILE>D:\BURnin\CopyWim\CopyWim.py</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\CopyWim.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+	<TESTITEM>
+	  <ITEM_NAME>Triển_khai_WindowsPE_部署WindowsPE</ITEM_NAME>         
+	  <BATCH_FILE>D:\BURNIN\EndBCD\EndBCD.bat</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\ENBCD.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	   <ITEM_NAME>UPLOADLOCATION_THREE</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\NEWEWS\NEWEWS_TV.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\EWS.jpg</PICTURE_FILE>
+	</TESTITEM>
+
+
+	<TESTITEM>
+	   <ITEM_NAME>Tải_thông_tin_cáp_lên_SFCS_上传cable信息到SFCS</ITEM_NAME>         
+	   <BATCH_FILE>D:\BURNIN\GetBIData\uploadcable.BAT</BATCH_FILE>
+	   <PICTURE_FILE>D:\TEST_UI\Picture_UI\Smart_UPBIDATA.jpg</PICTURE_FILE>
+	</TESTITEM>
+	
+	<TESTITEM>
+	  <ITEM_NAME>Nhập_WindowsPE_进入WindowsPE</ITEM_NAME>         
+	  <BATCH_FILE>D:\BURNIN\GOPE\GOPE.bat</BATCH_FILE>
+	  <PICTURE_FILE>D:\TEST_UI\Picture_UI\GOPE.jpg</PICTURE_FILE>
+	</TESTITEM>
+   </THREAD> 
+ </STATION>
+</TESTINFO>
